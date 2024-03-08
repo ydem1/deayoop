@@ -4,7 +4,7 @@ import { Header } from './components/header'
 
 export function App() {
   return (
-    <div className="app">
+    <div className="app font-raleway">
       <Header />
       <Outlet />
     </div>

@@ -5,10 +5,26 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    colors: {
+      blue: '#2177b31a',
+      black: '#212325',
+      white: '#fcfcfc',
+      darkBlue: '#0d3450',
+    },
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: {
+        xl: '1226px',
+      }
+    },
     extend: {
       fontFamily: {
-        'raleway': ['Raleway', 'sans-serif' ],
-      }
+        'raleway': ['Raleway', 'sans-serif'],
+      },
+      backgroundImage: {
+        'logo': "url('/img/logo/logo.png')",
+      },
     },
   },
   plugins: [],
