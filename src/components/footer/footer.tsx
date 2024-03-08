@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../logo";
 
-export function Footer() {
+export const Footer = () => {
   const styleLink = 'text-darkBlue text-sm font-semibold hover:scale-105 duration-300';
 
   return (
@@ -67,4 +67,4 @@ export function Footer() {
       </div>
     </footer>
   )
-}
+};

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Logo() {
+export const Logo = () => {
   return (
     <Link
       className="
@@ -14,4 +14,4 @@ export function Logo() {
       <div className="logo" />
     </Link>
   )
-}
+};

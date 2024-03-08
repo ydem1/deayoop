@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../logo";
 
-export function Header() {
+export const Header = () => {
   const hoverStyle = 'hover:scale-105 duration-300';
 
   return (
@@ -62,4 +62,4 @@ export function Header() {
       </div>
     </header>
   )
-}
+};
