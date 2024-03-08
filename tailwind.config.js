@@ -10,6 +10,7 @@ export default {
       black: '#212325',
       white: '#fcfcfc',
       darkBlue: '#0d3450',
+      grey: '#eaeaea',
     },
     container: {
       center: true,

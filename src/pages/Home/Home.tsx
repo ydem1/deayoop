@@ -1,8 +1,11 @@
+import { ListCategories } from "./components/List-Categories";
 
 export const Home = () => {
   return (
     <main>
-      <h1>Home</h1>
+      <div className="container py-14">
+        <ListCategories />
+      </div>
     </main>
   )
 };
