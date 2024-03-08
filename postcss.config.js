@@ -3,4 +3,7 @@ export default {
     tailwindcss: {},
     autoprefixer: {},
   },
+  include: [
+    './src/fonts/static/**/*',
+  ]
 }
