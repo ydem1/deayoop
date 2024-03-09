@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Categories } from "../../../../constants/Categories";
+import { hoverStyle } from "../../../../constants/hoverStyle";
 
 export const ListCategories = () => {
   return (
@@ -9,7 +10,7 @@ export const ListCategories = () => {
       <ul className="flex justify-between px-6">
         {Categories.map(category => (
           <li key={category.id}>
-            <Link to={category.url} className="flex flex-col items-center hover:scale-105 duration-300">
+            <Link to={category.url} className={`flex flex-col items-center ${hoverStyle}`}>
               <div className="bg-grey rounded-full p-9">
                 <img className="size-10" src={category.img} alt={category.title} />
               </div>

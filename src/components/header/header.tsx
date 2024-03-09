@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../logo";
 
-export const Header = () => {
-  const hoverStyle = 'hover:scale-105 duration-300';
+import { hoverStyle } from "../../constants/hoverStyle";
 
+export const Header = () => {
   return (
     <header className="bg-blue">
       <div className="container flex items-center justify-between py-3.5">
