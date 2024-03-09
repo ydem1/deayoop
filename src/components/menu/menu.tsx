@@ -6,16 +6,22 @@ import { LinkCategory } from "./link-category";
 import { CategoryMenu } from "../../types/CategoryMenu";
 
 export const Menu = () => {
-  const [currentCategory, setCurrentCategory] = useState<CategoryMenu[]>([]);
-  const [currentSubcategory, setCurrentSubcategory] = useState<CategoryMenu[]>([]);
+  const [currentCategories, setCurrentCategories] = useState<CategoryMenu[]>([]);
+  const [currentSubcategories, setCurrentSubcategories] = useState<CategoryMenu[]>([]);
 
-  const handleCategory = (category: CategoryMenu) => {
-    setCurrentCategory(category.subcategories as []);
-    setCurrentSubcategory([]);
+  const [currentCategory, setCurrentCategory] = useState('');
+  const [currentSubcategory, setCurrentSubcategory] = useState('');
+
+
+  const handleCategory = (category: CategoryMenu, title: string) => {
+    setCurrentCategories(category.subcategories as []);
+    setCurrentSubcategories([]);
+    setCurrentCategory(title)
   };
 
-  const handleSubcategory = (category: CategoryMenu) => {
-    setCurrentSubcategory(category.subcategories as [])
+  const handleSubcategory = (category: CategoryMenu, title: string) => {
+    setCurrentSubcategories(category.subcategories as [])
+    setCurrentSubcategory(title)
   };
 
   return (
@@ -23,24 +29,33 @@ export const Menu = () => {
       <ul>{
         menu.map(category => (
           <li key={category.title} className="bg-white">
-            <LinkCategory category={category} img={category.img} onClick={handleCategory} />
+            <LinkCategory
+              isActive={category.title === currentCategory}
+              category={category}
+              img={category.img}
+              onClick={handleCategory}
+            />
           </li>
         ))
       }</ul>
 
-      {currentCategory && (
+      {currentCategories && (
         <ul>{
-          currentCategory.map(category => (
+          currentCategories.map(category => (
             <li key={category.title} className="bg-white">
-              <LinkCategory category={category} onClick={handleSubcategory} />
+              <LinkCategory
+                isActive={category.title === currentSubcategory}
+                category={category}
+                onClick={handleSubcategory}
+              />
             </li>
           ))
         }</ul>
       )}
 
-      {currentSubcategory && (
+      {currentSubcategories && (
         <ul>{
-          currentSubcategory.map(category => (
+          currentSubcategories.map(category => (
             <li key={category.title} className="bg-white">
               <LinkCategory category={category} />
             </li>
