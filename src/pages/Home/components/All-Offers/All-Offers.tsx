@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { hoverStyle } from "../../../../constants/hoverStyle";
 import { OfferGrid } from "./Offers-Grid/Offers-Grid";
 
 export const AllOffers = () => {
+  const [toggle, setToggle] = useState(true);
 
   return (
     <section>
@@ -14,11 +16,12 @@ export const AllOffers = () => {
             px-3 py-4
             ${hoverStyle}
           `}
+          onClick={() => setToggle(!toggle)}
         >
           Row/Colunm
         </button>
       </div>
-      <OfferGrid />
+      <OfferGrid orientation={toggle}/>
 
     </section>
   )
