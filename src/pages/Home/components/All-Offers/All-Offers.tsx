@@ -21,8 +21,7 @@ export const AllOffers = () => {
           Row/Colunm
         </button>
       </div>
-      <OfferGrid orientation={toggle}/>
-
+      <OfferGrid orientation={toggle} />
     </section>
   )
 };
