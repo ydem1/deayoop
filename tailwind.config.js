@@ -12,6 +12,7 @@ export default {
       darkBlue: '#0d3450',
       grey: '#eaeaea',
       borderOffer: '#0000004d',
+      ligthBlue: '#2177b380'
     },
     container: {
       center: true,

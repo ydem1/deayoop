@@ -42,7 +42,7 @@ export const Header = () => {
             text-black text-sm font-bold
             ${hoverStyle}
           `}
-            to='/'
+            to='/user'
           >
             Log in
           </Link>
@@ -54,7 +54,7 @@ export const Header = () => {
               text-white text-sm font-bold 
               ${hoverStyle}
             `}
-            to='/'
+            to='/user'
           >
             Sing Up
           </Link>

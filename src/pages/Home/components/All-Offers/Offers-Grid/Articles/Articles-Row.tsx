@@ -1,3 +1,4 @@
+import { Rating } from "../../../../../../components/rating";
 import { hoverStyle } from "../../../../../../constants/hoverStyle";
 import { Offer } from "../../../../../../types/Offer";
 
@@ -31,14 +32,7 @@ export const ArticleRow: React.FC<Props> = ({ offer }) => {
       <div className="flex flex-col gap-2 grow px-5 py-6">
         <div className="flex justify-between">
           <p className=" text-black font-medium text-sm">{offer.category.title}</p>
-
-          <ul className="flex gap-1.5">
-            {Array.from({ length: 5 }, (_, index) => (
-              <li key={index}>
-                <i className={`fa-star ${index < offer.rating ? 'fa-solid' : 'fa-regular'}`} />
-              </li>
-            ))}
-          </ul>
+          <Rating currentRating={offer.rating} />
         </div>
 
         <h3 className="text-black text-base font-bold">{offer.title}</h3>
