@@ -7,7 +7,8 @@ import {
 import { App } from './App';
 import { Home } from './pages/Home';
 import { User } from './pages/User';
-
+import { Other } from './pages/User/components/Other/Other';
+import { Profile } from './pages/User/components/Profile';
 
 export const Root = () => (
   <Router>
@@ -15,10 +16,10 @@ export const Root = () => (
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="/user" element={<User />}>
-          <Route path="order" element={<h1>order</h1>} />
-          <Route path="favourite" element={<h1>favourite</h1>} />
-          <Route path="help" element={<h1>help</h1>} />
-          <Route path="profile" element={<h1>profile</h1>} />
+          <Route path="order" element={<Other />} />
+          <Route path="favourite" element={<Other />} />
+          <Route path="help" element={<Other />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
   
         {/* <Route path="*" element={<NotFoundPage />} /> */}

@@ -44,7 +44,7 @@ export const User = () => {
       <Pagination />
 
       <section className="flex mt-4">
-        <article className="p-5">
+        <article className="p-5 basis-1/3">
           <div className="flex gap-10 items-center">
             <img src="./img/user/user.png" alt="User photo" />
             <div>
