@@ -1,15 +1,21 @@
 import { useFormik } from "formik";
+import { user } from "../../../../constants/User";
+import { hoverStyle } from "../../../../constants/hoverStyle";
+import { useState } from "react";
 
 export const Profile = () => {
+  const [isFormSend, setIsFormSend] = useState(false);
+
   const validateEmail = (value: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
   const handlePhoneChange = (value: string) => {
     if (formik.values.phone.length > value.length) {
       formik.handleChange({ target: { name: 'phone', value } });
+
       return;
     }
-  
+
     const digitsOnly = value.replace(/\D/g, '');
     const formattedValue = `+${digitsOnly.slice(0, 1)} ${digitsOnly.slice(1, 4)} ${digitsOnly.slice(4, 8)}`;
     formik.handleChange({ target: { name: 'phone', value: formattedValue } });
@@ -17,12 +23,15 @@ export const Profile = () => {
 
   const formik = useFormik({
     initialValues: {
-      fullName: '',
-      phone: '',
-      email: '',
+      fullName: user.fullName,
+      phone: user.phone,
+      email: user.email,
+      file: null,
     },
     onSubmit: value => {
       console.log(value);
+      setIsFormSend(true)
+      setTimeout(() => setIsFormSend(false), 2000);
     },
     validate: values => {
       const errors: {
@@ -53,7 +62,7 @@ export const Profile = () => {
 
   return (
     <div className="grow">
-      <h2 className="font-bold text-2xl">
+      <h2 className="font-bold text-2xl mb-8">
         Profile
       </h2>
 
@@ -133,12 +142,59 @@ export const Profile = () => {
           )}
         </div>
 
+        <div className="border border-grey rounded-lg flex flex-col items-center justify-center py-3 px-4">
+          <label
+            htmlFor='file'
+            className=" text-ligthBlue font-semibold text-lg w-full"
+          >
+            <p className="text-center">Upload CV:</p>
+            <p className="text-center">uploaded file: {formik.values.file}</p>
+          </label>
 
+          <input
+            className="hidden"
+            type="file"
+            id="file"
+            name="file"
+            onChange={formik.handleChange}
+          />
 
+          {formik.errors.email && (
+            <p className="text-red">
+              {formik.errors.email}
+            </p>
+          )}
+        </div>
 
-        <button type="submit">Sumbit</button>
+        <button
+          className={`
+            w-[max-content]
+            mt-4 p-3
+            bg-ligthBlue
+            text-white font-semibold text-base
+            rounded-lg
+            ${hoverStyle}
+          `}
+          type="submit"
+        >
+          Save Changes
+        </button>
       </form>
 
+      <p
+        className={`
+          absolute left-1/2 transform -translate-x-1/2
+          transition-all duration-300
+          ${isFormSend ? 'top-1/2 -translate-y-1/2' : 'top-[-120px]'}
+          bg-white
+          p-6
+          text-6xl
+          text-green
+          rounded-lg 
+        `}
+      >
+        Changes are saved
+      </p>
     </div>
   );
 };

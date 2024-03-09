@@ -2,16 +2,9 @@ import { NavLink, Outlet } from "react-router-dom";
 import { Pagination } from "../../components/pagination";
 import { Rating } from "../../components/rating";
 import { hoverStyle } from "../../constants/hoverStyle";
+import { user } from "../../constants/User";
 
 export const User = () => {
-  const user = {
-    fullName: 'Helen Wilson',
-    revies: 82,
-    phone: 15481547,
-    email: 'hellenFox@gmail.com',
-    rating: 5,
-  };
-
   const userPages = [
     {
       id: 0,
