@@ -12,13 +12,15 @@ export default {
       darkBlue: '#0d3450',
       grey: '#eaeaea',
       borderOffer: '#0000004d',
-      ligthBlue: '#2177b380'
+      ligthBlue: '#2177b380',
+      red: '#e53f3f',
     },
     container: {
       center: true,
       padding: '1rem',
+      box: 'border',
       screens: {
-        xl: '1226px',
+        xl: '1194px',
       }
     },
     extend: {

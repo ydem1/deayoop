@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 export const Pagination = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
   const lastPart = pathname.split('/').slice(-1)[0];
   const currentpage = lastPart.charAt(0).toUpperCase() + lastPart.slice(1);
 
