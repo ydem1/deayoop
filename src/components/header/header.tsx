@@ -2,20 +2,28 @@ import { Link } from "react-router-dom";
 import { Logo } from "../logo";
 
 import { hoverStyle } from "../../constants/hoverStyle";
+import React from "react";
 
-export const Header = () => {
+interface Props {
+  toggleMenu: () => void;
+}
+
+export const Header: React.FC<Props> = ({ toggleMenu }) => {
   return (
     <header className="bg-blue">
       <div className="container flex items-center justify-between py-3.5">
         <div className="flex items-center gap-10">
           <Logo />
 
-          <button className={`
-            flex items-center 
-            p-2.5 gap-2.5 
-            border border-solid border-black rounded-lg
-            ${hoverStyle}
-          `}>
+          <button
+            className={`
+              flex items-center 
+              p-2.5 gap-2.5 
+              border border-solid border-black rounded-lg
+              ${hoverStyle}
+            `}
+            onClick={toggleMenu}
+          >
             <i className="fa-solid fa-bars size-5" />
             <p className="text-black text-sm font-semibold">
               All Categories

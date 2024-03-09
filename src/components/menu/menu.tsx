@@ -25,43 +25,45 @@ export const Menu = () => {
   };
 
   return (
-    <nav className="grid grid-cols-3">
-      <ul>{
-        menu.map(category => (
-          <li key={category.title} className="bg-white">
-            <LinkCategory
-              isActive={category.title === currentCategory}
-              category={category}
-              img={category.img}
-              onClick={handleCategory}
-            />
-          </li>
-        ))
-      }</ul>
-
-      {currentCategories && (
+    <aside className="absolute left-0 right-0">
+      <nav className="grid grid-cols-3">
         <ul>{
-          currentCategories.map(category => (
+          menu.map(category => (
             <li key={category.title} className="bg-white">
               <LinkCategory
-                isActive={category.title === currentSubcategory}
+                isActive={category.title === currentCategory}
                 category={category}
-                onClick={handleSubcategory}
+                img={category.img}
+                onClick={handleCategory}
               />
             </li>
           ))
         }</ul>
-      )}
 
-      {currentSubcategories && (
-        <ul>{
-          currentSubcategories.map(category => (
-            <li key={category.title} className="bg-white">
-              <LinkCategory category={category} />
-            </li>
-          ))
-        }</ul>
-      )}
-    </nav>
+        {currentCategories && (
+          <ul>{
+            currentCategories.map(category => (
+              <li key={category.title} className="bg-white">
+                <LinkCategory
+                  isActive={category.title === currentSubcategory}
+                  category={category}
+                  onClick={handleSubcategory}
+                />
+              </li>
+            ))
+          }</ul>
+        )}
+
+        {currentSubcategories && (
+          <ul>{
+            currentSubcategories.map(category => (
+              <li key={category.title} className="bg-white">
+                <LinkCategory category={category} />
+              </li>
+            ))
+          }</ul>
+        )}
+      </nav>
+    </aside>
   );
 };
