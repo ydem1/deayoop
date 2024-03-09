@@ -25,6 +25,7 @@ export default {
       },
       backgroundImage: {
         'logo': "url('/img/logo/logo.png')",
+        'poster': "url('/img/poster/poster.png')",
       },
     },
   },
