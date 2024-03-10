@@ -158,12 +158,6 @@ export const Profile = () => {
             name="file"
             onChange={formik.handleChange}
           />
-
-          {formik.errors.email && (
-            <p className="text-red">
-              {formik.errors.email}
-            </p>
-          )}
         </div>
 
         <button
