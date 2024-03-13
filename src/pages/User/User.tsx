@@ -10,25 +10,25 @@ const USER_PAGES = [
     id: 0,
     icon: 'fa-solid fa-bag-shopping',
     title: 'Order',
-    url: '/user/order',
+    url: '/deayoop/user/order',
   },
   {
     id: 1,
     icon: 'fa-regular fa-heart',
     title: 'Favourite',
-    url: '/user/favourite',
+    url: '/deayoop/user/favourite',
   },
   {
     id: 2,
     icon: 'fa-regular fa-life-ring',
     title: 'Help',
-    url: '/user/help',
+    url: '/deayoop/user/help',
   },
   {
     id: 3,
     icon: 'fa-solid fa-gear',
     title: 'Profile',
-    url: '/user/profile',
+    url: '/deayoop/user/profile',
   },
 ];
 
