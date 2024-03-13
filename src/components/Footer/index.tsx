@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-import { Logo } from "../logo";
+import { Logo } from "../Logo";
 
 const FOOTER_MENU_OPTIONS = [
   {
     label: 'Privacy Policy',
-    url: '/',
-  },
-  {
-    label: 'Contract-offer',
     url: '/',
   },
   {
@@ -48,16 +44,18 @@ export const Footer = () => (
         <a className={STYLE_LINK} href="tel:+4255053804">(425) 505-3804</a>
       </div>
 
-      <div className="flex gap-3">
+      <ul className="flex gap-3">
         {FOOTER_MENU_OPTIONS.map(({ label, url }) => (
-          <Link
-            className={STYLE_LINK}
-            to={url}
-          >
-            {label}
-          </Link>
+          <li key={label}>
+            <Link
+              className={STYLE_LINK}
+              to={url}
+            >
+              {label}
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   </footer>
 );

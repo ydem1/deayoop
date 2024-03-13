@@ -1,9 +1,9 @@
+import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { Header } from './components/header'
-import { Footer } from './components/footer'
-import { Menu } from './components/menu'
-import { useState } from 'react'
+import { Header } from './components/Header';
+import { Menu } from './components/Menu'
+import { Footer } from './components/Footer';
 
 export function App() {
   const [isMenu, setIsMenu] = useState(false);
@@ -11,7 +11,7 @@ export function App() {
   return (
     <div className="app font-raleway">
       <Header toggleMenu={() => setIsMenu(!isMenu)} />
-      {isMenu && <Menu /> }
+      {isMenu && <Menu />}
       <Outlet />
       <Footer />
     </div>

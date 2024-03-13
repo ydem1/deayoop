@@ -27,7 +27,6 @@ export const Input: React.FC<Props> = ({
     onBlur(event);
   };
 
-
   return (
     <div className="border border-grey rounded-lg flex py-3 px-4">
       <label

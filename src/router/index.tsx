@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { App } from '../App.tsx';
-import { Home } from '../pages/Home/Home.tsx';
-import { User } from '../pages/User/User.tsx';
-import { Other } from '../pages/User/components/Other/Other.tsx';
-import { Profile } from '../pages/User/components/Profile/Profile.tsx';
+import { Home } from '../pages/Home';
+import { User } from '../pages/User';
+import { Other } from '../pages/User/components/Other';
+import { Profile } from '../pages/User/components/Profile';
 import { ROUTES as path } from '../constants/routes.tsx';
 
 export const router = createBrowserRouter([
