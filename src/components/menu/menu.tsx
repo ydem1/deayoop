@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { menu } from "../../constants/Menu";
+import { MENU_OPTIONS } from "../../constants/menu";
 
 import { LinkCategory } from "./link-category";
 import { CategoryMenu } from "../../types/CategoryMenu";
@@ -28,7 +28,7 @@ export const Menu = () => {
     <aside className="absolute left-0 right-0">
       <nav className="grid grid-cols-3">
         <ul>{
-          menu.map(category => (
+          MENU_OPTIONS.map(category => (
             <li key={category.title} className="bg-white">
               <LinkCategory
                 isActive={category.title === currentCategory}

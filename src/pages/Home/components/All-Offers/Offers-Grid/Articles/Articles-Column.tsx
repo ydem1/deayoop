@@ -1,5 +1,4 @@
 import { Rating } from "../../../../../../components/rating";
-import { hoverStyle } from "../../../../../../constants/hoverStyle";
 import { Offer } from "../../../../../../types/Offer";
 
 interface Props {
@@ -39,15 +38,17 @@ export const ArticleColumn: React.FC<Props> = ({ offer }) => {
         </p>
 
         <div className="flex justify-between items-center">
-          <p className="
-                    text-black font-semibold text-xs
-                    bg-grey rounded-lg
-                    px-2 py-1
-                  ">
+          <p
+            className="
+              text-black font-semibold text-xs
+              bg-grey rounded-lg
+              px-2 py-1
+            "
+          >
             Investing
           </p>
 
-          <button className={hoverStyle}>
+          <button>
             <i className="fa-regular fa-heart" />
           </button>
         </div>

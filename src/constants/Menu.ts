@@ -1,4 +1,4 @@
-export const menu = [
+export const MENU_OPTIONS = [
   {
     title: 'Services',
     img: './img/categories/services.svg',

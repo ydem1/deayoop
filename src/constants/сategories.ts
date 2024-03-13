@@ -1,6 +1,6 @@
 import { Category } from "../types/Category";
 
-export const Categories: Category[] = [
+export const CATEGOTIES: Category[] = [
   {
     id: 'services-id',
     img: './img/categories/services.svg',

@@ -1,36 +1,25 @@
 import { useFormik } from "formik";
-import { user } from "../../../../constants/User";
-import { hoverStyle } from "../../../../constants/hoverStyle";
+import { USER_CURRENT } from "../../../../constants/user";
 import { useState } from "react";
 
 export const Profile = () => {
   const [isFormSend, setIsFormSend] = useState(false);
-
-  const validateEmail = (value: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-  const handlePhoneChange = (value: string) => {
-    if (formik.values.phone.length > value.length) {
-      formik.handleChange({ target: { name: 'phone', value } });
-
-      return;
-    }
-
-    const digitsOnly = value.replace(/\D/g, '');
-    const formattedValue = `+${digitsOnly.slice(0, 1)} ${digitsOnly.slice(1, 4)} ${digitsOnly.slice(4, 8)}`;
-    formik.handleChange({ target: { name: 'phone', value: formattedValue } });
-  };
+  const {
+    fullName,
+    phone,
+    email,
+  } = USER_CURRENT;
 
   const formik = useFormik({
     initialValues: {
-      fullName: user.fullName,
-      phone: user.phone,
-      email: user.email,
+      fullName,
+      phone,
+      email,
       file: null,
     },
     onSubmit: value => {
       console.log(value);
-      setIsFormSend(true)
+      setIsFormSend(true);
       setTimeout(() => setIsFormSend(false), 2000);
     },
     validate: values => {
@@ -59,6 +48,21 @@ export const Profile = () => {
       return errors;
     }
   });
+
+  const validateEmail = (value: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+  const handlePhoneChange = (value: string) => {
+    if (formik.values.phone.length > value.length) {
+      formik.handleChange({ target: { name: 'phone', value } });
+
+      return;
+    }
+
+    const digitsOnly = value.replace(/\D/g, '');
+    const formattedValue = `+${digitsOnly.slice(0, 1)} ${digitsOnly.slice(1, 4)} ${digitsOnly.slice(4, 8)}`;
+    formik.handleChange({ target: { name: 'phone', value: formattedValue } });
+  };
 
   return (
     <div className="grow">
@@ -161,14 +165,13 @@ export const Profile = () => {
         </div>
 
         <button
-          className={`
+          className="
             w-[max-content]
             mt-4 p-3
             bg-ligthBlue
             text-white font-semibold text-base
-            rounded-lg
-            ${hoverStyle}
-          `}
+            rounded-lgF
+          "
           type="submit"
         >
           Save Changes

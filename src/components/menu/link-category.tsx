@@ -22,7 +22,7 @@ export const LinkCategory: React.FC<Props> = ({
     if (category.url) {
       navigate(category.url);
       console.log(category.url);
-    } else if (onClick) {
+    } else if (onClick) { 
       onClick(category, category.title)
     }
   }

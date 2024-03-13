@@ -1,5 +1,4 @@
 import { Rating } from "../../../../../../components/rating";
-import { hoverStyle } from "../../../../../../constants/hoverStyle";
 import { Offer } from "../../../../../../types/Offer";
 
 interface Props {
@@ -41,7 +40,7 @@ export const ArticleRow: React.FC<Props> = ({ offer }) => {
           {offer.description}
         </p>
 
-        <button className={`self-end ${hoverStyle}`}>
+        <button className="self-end">
           <i className="fa-regular fa-heart" />
         </button>
       </div>

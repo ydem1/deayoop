@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../logo";
 
-import { hoverStyle } from "../../constants/hoverStyle";
 import React from "react";
 
 interface Props {
@@ -16,12 +15,11 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
           <Logo />
 
           <button
-            className={`
+            className="
               flex items-center 
               p-2.5 gap-2.5 
               border border-solid border-black rounded-lg
-              ${hoverStyle}
-            `}
+            "
             onClick={toggleMenu}
           >
             <i className="fa-solid fa-bars size-5" />
@@ -33,10 +31,7 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
 
         <div className="flex items-center gap-10">
           <Link
-            className={`
-              flex gap-3
-              ${hoverStyle}
-            `}
+            className="flex gap-3"
             to='/'
           >
             <i className="fa-regular fa-heart" />
@@ -46,22 +41,18 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
           </Link>
 
           <Link
-            className={`
-            text-black text-sm font-bold
-            ${hoverStyle}
-          `}
+            className="text-black text-sm font-bold"
             to='/user'
           >
             Log in
           </Link>
 
           <Link
-            className={`
+            className="
               bg-darkBlue rounded-lg
               py-2 px-4
-              text-white text-sm font-bold 
-              ${hoverStyle}
-            `}
+              text-white text-sm font-bold
+            "
             to='/user'
           >
             Sing Up

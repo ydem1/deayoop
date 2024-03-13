@@ -18,3 +18,8 @@ select:focus,
 button:focus {
     outline: none;
 }
+
+button,
+a {
+  @apply hover:scale-105 duration-300;
+}

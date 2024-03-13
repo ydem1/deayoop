@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { Categories } from "../../../../constants/Categories";
-import { hoverStyle } from "../../../../constants/hoverStyle";
+import { CATEGOTIES } from "../../../../constants/сategories";
 
 export const ListCategories = () => {
   return (
@@ -8,9 +7,9 @@ export const ListCategories = () => {
       <h1 className="text-4xl text-black font-semibold mb-10 text-center">Main categories</h1>
 
       <ul className="flex justify-between px-6">
-        {Categories.map(category => (
+        {CATEGOTIES.map(category => (
           <li key={category.id}>
-            <Link to={category.url} className={`flex flex-col items-center ${hoverStyle}`}>
+            <Link to={category.url} className="flex flex-col items-center">
               <div className="bg-grey rounded-full p-9">
                 <img className="size-10" src={category.img} alt={category.title} />
               </div>
