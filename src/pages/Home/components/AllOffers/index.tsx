@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { OfferGrid } from "./Offers-Grid";
+import { OfferGrid } from "./OffersGrid";
 
 export const AllOffers = () => {
   const [toggle, setToggle] = useState(true);

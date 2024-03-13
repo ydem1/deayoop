@@ -1,5 +1,5 @@
-import { AllOffers } from "./components/All-Offers";
-import { ListCategories } from "./components/List-Categories";
+import { AllOffers } from "./components/AllOffers";
+import { ListCategories } from "./components/ListCategories";
 import { Poster } from "./components/Poster";
 
 

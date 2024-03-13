@@ -13,7 +13,7 @@ export const ListCategories = () => {
               <div className="bg-grey rounded-full p-9">
                 <img className="size-10" src={category.img} alt={category.title} />
               </div>
-              <p className="text-base text-black font-medium pt-[11px] pb-[16px]">
+              <p className="text-base text-black font-medium pt-3 pb-4">
                 {category.title}
               </p>
             </Link>

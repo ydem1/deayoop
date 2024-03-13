@@ -182,7 +182,7 @@ export const Profile = () => {
         className={`
           absolute left-1/2 transform -translate-x-1/2
           transition-all duration-300
-          ${isFormSend ? 'top-1/2 -translate-y-1/2' : 'top-[-120px]'}
+          ${isFormSend ? 'top-1/2 -translate-y-1/2' : '-top-40'}
           bg-white
           p-6
           text-6xl

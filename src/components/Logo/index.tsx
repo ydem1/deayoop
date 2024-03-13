@@ -5,7 +5,7 @@ export const Logo = () => {
     <Link
       className="
         bg-logo bg-contain bg-no-repeat
-        w-[151px] h-[46px]
+        w-40 h-12
       "
       to='/'
     >

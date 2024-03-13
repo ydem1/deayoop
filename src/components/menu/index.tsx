@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { MENU_OPTIONS } from "../../constants/menu";
 
-import { LinkCategory } from "./link-category";
+import { LinkCategory } from "./LinkCategory";
 import { CategoryMenu } from "../../types/CategoryMenu";
 
 export const Menu = () => {

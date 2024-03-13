@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Offer } from "../../../../../types/Offer";
 import { get } from "../../../../../httpClient/client";
 
-import { ArticleColumn } from "./Articles/Articles-Column";
-import { ArticleRow } from "./Articles/Articles-Row";
+import { ArticleColumn } from "./Articles/ArticlesСolumn";
+import { ArticleRow } from "./Articles/ArticlesRow";
 import { Oval } from "react-loader-spinner";
 
 interface Props {
