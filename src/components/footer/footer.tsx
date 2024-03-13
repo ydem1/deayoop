@@ -1,70 +1,63 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../logo";
 
-export const Footer = () => {
-  const styleLink = 'text-darkBlue text-sm font-semibold hover:scale-105 duration-300';
+const FOOTER_MENU_OPTIONS = [
+  {
+    label: 'Privacy Policy',
+    url: '/',
+  },
+  {
+    label: 'Contract-offer',
+    url: '/',
+  },
+  {
+    label: 'Contract-offer',
+    url: '/',
+  },
+  {
+    label: 'FAQ',
+    url: '/',
+  },
+  {
+    label: 'Payments',
+    url: '/',
+  },
+  {
+    label: 'Help',
+    url: '/',
+  },
+  {
+    label: 'Feedback',
+    url: '/',
+  },
+  {
+    label: 'Safety rules',
+    url: '/',
+  },
+];
 
-  return (
-    <footer className="bg-blue">
-      <div className="container flex items-center justify-between py-10">
-        <Logo />
+const STYLE_LINK = 'text-darkBlue text-sm font-semibold hover:scale-105 duration-300';
 
-        <div className="flex gap-3">
-          <a className={styleLink} href="mailto:support@dealyoop.com">support@dealyoop.com</a>
-          <a className={styleLink} href="tel:+4255053804">(425) 505-3804</a>
-        </div>
+export const Footer = () => (
+  <footer className="bg-blue">
+    <div className="container flex items-center justify-between py-10">
+      <Logo />
 
-        <div className="flex gap-3">
-          <Link
-            className={styleLink}
-            to="/"
-          >
-            Privacy Policy
-          </Link>
-
-          <Link
-            className={styleLink}
-            to="/"
-          >
-            Contract-offer
-          </Link>
-
-          <Link
-            className={styleLink}
-            to="/"
-          >
-            FAQ
-          </Link>
-
-          <Link
-            className={styleLink}
-            to="/"
-          >
-            Payments
-          </Link>
-
-          <Link
-            className={styleLink}
-            to="/"
-          >
-            Help
-          </Link>
-
-          <Link
-            className={styleLink}
-            to="/"
-          >
-            Feedback
-          </Link>
-
-          <Link
-            className={styleLink}
-            to="/"
-          >
-            Safety rules
-          </Link>
-        </div>
+      <div className="flex gap-3">
+        <a className={STYLE_LINK} href="mailto:support@dealyoop.com">support@dealyoop.com</a>
+        <a className={STYLE_LINK} href="tel:+4255053804">(425) 505-3804</a>
       </div>
-    </footer>
-  )
-};
+
+      <div className="flex gap-3">
+        {FOOTER_MENU_OPTIONS.map(({ label, url }) => (
+          <Link
+            className={STYLE_LINK}
+            to={url}
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  </footer>
+);
