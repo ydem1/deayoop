@@ -4,33 +4,34 @@ import { Home } from '../pages/Home/Home.tsx';
 import { User } from '../pages/User/User.tsx';
 import { Other } from '../pages/User/components/Other/Other.tsx';
 import { Profile } from '../pages/User/components/Profile/Profile.tsx';
+import { ROUTES as path } from '../constants/routes.tsx';
 
 export const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       {
-        path: '/deayoop',
+        path: path.home,
         element: <Home />
       },
       {
-        path: '/deayoop/user',
+        path: path.user,
         element: <User />,
         children: [
           {
-            path: '/deayoop/user/order',
+            path: path.userOrder,
             element: <Other />
           },
           {
-            path: '/deayoop/user/favourite',
+            path: path.userFavourite,
             element: <Other />
           },
           {
-            path: '/deayoop/user/help',
+            path: path.userHelp,
             element: <Other />
           },
           {
-            path: '/deayoop/user/profile',
+            path: path.userProfile,
             element: <Profile />
           }
         ]

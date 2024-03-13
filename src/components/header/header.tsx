@@ -42,7 +42,7 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
 
           <Link
             className="text-black text-sm font-bold"
-            to='deayoop/user'
+            to='/user'
           >
             Log in
           </Link>
@@ -53,7 +53,7 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
               py-2 px-4
               text-white text-sm font-bold
             "
-            to='deayoop/user'
+            to='/user'
           >
             Sing Up
           </Link>
