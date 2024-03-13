@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import { NavLink, Outlet } from "react-router-dom";
 
-import { Pagination } from "../../components/Pagination";
-import { Rating } from "../../components/Rating";
-import { USER_CURRENT } from "../../constants/user";
+import { Pagination } from "components/Pagination";
+import { Rating } from "components/Rating";
+import { USER_CURRENT } from "constants/user";
 
 const USER_PAGES = [
   {

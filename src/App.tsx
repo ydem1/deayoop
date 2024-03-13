@@ -8,9 +8,13 @@ import { Footer } from './components/Footer';
 export function App() {
   const [isMenu, setIsMenu] = useState(false);
 
+  const hadndleOnClick = () => {
+    setIsMenu(!isMenu)
+  };
+
   return (
     <div className="app font-raleway">
-      <Header toggleMenu={() => setIsMenu(!isMenu)} />
+      <Header toggleMenu={hadndleOnClick} />
       {isMenu && <Menu />}
       <Outlet />
       <Footer />

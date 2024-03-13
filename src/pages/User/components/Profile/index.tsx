@@ -1,6 +1,7 @@
-import { useFormik } from "formik";
-import { USER_CURRENT } from "../../../../constants/user";
 import { useState } from "react";
+import { useFormik } from "formik";
+
+import { USER_CURRENT } from "constants/user";
 
 export const Profile = () => {
   const [isFormSend, setIsFormSend] = useState(false);

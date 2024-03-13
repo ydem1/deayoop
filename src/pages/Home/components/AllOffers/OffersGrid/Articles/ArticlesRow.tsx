@@ -1,5 +1,5 @@
-import { Rating } from "../../../../../../components/Rating";
-import { Offer } from "../../../../../../types/Offer";
+import { Rating } from "components/Rating";
+import { Offer } from "types/Offer";
 
 interface Props {
   offer: Offer,

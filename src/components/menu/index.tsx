@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { MENU_OPTIONS } from "../../constants/menu";
+import { CategoryMenu } from "types/CategoryMenu";
+import { MENU_OPTIONS } from "constants/menu";
 
 import { LinkCategory } from "./LinkCategory";
-import { CategoryMenu } from "../../types/CategoryMenu";
 
 export const Menu = () => {
   const [currentCategories, setCurrentCategories] = useState<CategoryMenu[]>([]);
@@ -11,7 +11,6 @@ export const Menu = () => {
 
   const [currentCategory, setCurrentCategory] = useState('');
   const [currentSubcategory, setCurrentSubcategory] = useState('');
-
 
   const handleCategory = (category: CategoryMenu, title: string) => {
     setCurrentCategories(category.subcategories as []);

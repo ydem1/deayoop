@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { CATEGOTIES } from "../../../../constants/сategories";
+import { CATEGOTIES } from "constants/сategories";
+
 
 export const ListCategories = () => {
   return (

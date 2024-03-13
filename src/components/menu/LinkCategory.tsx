@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CategoryMenu } from "../../types/CategoryMenu";
+import { CategoryMenu } from "types/CategoryMenu";
 import classNames from "classnames";
 
 interface Props {

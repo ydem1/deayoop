@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Oval } from "react-loader-spinner";
 
-import { Offer } from "../../../../../types/Offer";
-import { get } from "../../../../../httpClient/client";
+import { Offer } from "types/Offer";
+import { get } from "httpClient";
 
 import { ArticleColumn } from "./Articles/ArticlesСolumn";
 import { ArticleRow } from "./Articles/ArticlesRow";
-import { Oval } from "react-loader-spinner";
+
 
 interface Props {
   orientation: boolean,
@@ -18,7 +19,7 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      get<Offer[]>('offers/all/')
+      get<Offer[]>('offers/all/') 
         .then(setVisableOffers)
         .catch(e => console.error(e))
         .finally(() => setIsLoading(false));

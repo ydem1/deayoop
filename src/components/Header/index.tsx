@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Logo } from "../Logo";
 
 import React from "react";
+import { ROUTES } from "constants/routes";
 
 interface Props {
   toggleMenu: () => void;
@@ -42,7 +43,7 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
 
           <Link
             className="text-black text-sm font-bold"
-            to='/user'
+            to={ROUTES.user}
           >
             Log in
           </Link>
@@ -53,7 +54,7 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
               py-2 px-4
               text-white text-sm font-bold
             "
-            to='/user'
+            to={ROUTES.user}
           >
             Sing Up
           </Link>
