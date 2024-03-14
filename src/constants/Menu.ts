@@ -1,3 +1,5 @@
+import { ROUTES } from "./routes";
+
 export const MENU_OPTIONS = [
   {
     title: 'Services',
@@ -5,18 +7,18 @@ export const MENU_OPTIONS = [
     subcategories: [
       {
         title: 'Accounting & Finance',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Admin / Office',
         subcategories: [
           {
             title: 'Admin',
-            url: '/',
+            url: ROUTES.home,
           },
           {
             title: 'Office',
-            url: '/',
+            url: ROUTES.home,
           }
         ]
       },
@@ -25,11 +27,11 @@ export const MENU_OPTIONS = [
         subcategories: [
           {
             title: 'Arch',
-            url: '/',
+            url: ROUTES.home,
           },
           {
             title: 'Engineering',
-            url: '/',
+            url: ROUTES.home,
           },
         ]
       },
@@ -38,15 +40,15 @@ export const MENU_OPTIONS = [
         subcategories: [
           {
             title: 'Art',
-            url: '/',
+            url: ROUTES.home,
           },
           {
             title: 'Media',
-            url: '/',
+            url: ROUTES.home,
           },
           {
             title: 'Design',
-            url: '/',
+            url: ROUTES.home,
           },
         ]
       },
@@ -55,11 +57,11 @@ export const MENU_OPTIONS = [
         subcategories: [
           {
             title: 'Biotech',
-            url: '/',
+            url: ROUTES.home,
           },
           {
             title: 'Science',
-            url: '/',
+            url: ROUTES.home,
           },
         ]
       },
@@ -71,11 +73,11 @@ export const MENU_OPTIONS = [
     subcategories: [
       {
         title: 'Houses',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Apartments',
-        url: '/'
+        url: ROUTES.home
       }
     ]
   },
@@ -85,15 +87,15 @@ export const MENU_OPTIONS = [
     subcategories: [
       {
         title: 'Apartments',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Houses',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Rooms',
-        url: '/'
+        url: ROUTES.home
       }
     ]
   },
@@ -103,15 +105,15 @@ export const MENU_OPTIONS = [
     subcategories: [
       {
         title: 'Electronics',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Furniture',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Clothing',
-        url: '/'
+        url: ROUTES.home
       }
     ]
   },
@@ -121,15 +123,15 @@ export const MENU_OPTIONS = [
     subcategories: [
       {
         title: 'IT',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Finance',
-        url: '/'
+        url: ROUTES.home
       },
       {
         title: 'Education',
-        url: '/'
+        url: ROUTES.home
       }
     ]
   },

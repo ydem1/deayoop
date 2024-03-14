@@ -8,6 +8,7 @@ interface Props {
   category: CategoryMenu,
   img?: string,
   isActive?: boolean,
+  closeMenu?: () => void,
 }
 
 export const LinkCategory: React.FC<Props> = ({
@@ -15,13 +16,15 @@ export const LinkCategory: React.FC<Props> = ({
   category,
   img,
   isActive,
+  closeMenu,
 }) => {
   const navigate = useNavigate();
 
   const handleOnclick = () => {
-    if (category.url) {
+    if (category.url && closeMenu) {
       navigate(category.url);
       console.log(category.url);
+      closeMenu();
     } else if (onClick) { 
       onClick(category, category.title)
     }

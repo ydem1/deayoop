@@ -1,11 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { CategoryMenu } from "types/CategoryMenu";
 import { MENU_OPTIONS } from "constants/menu";
 
 import { LinkCategory } from "./LinkCategory";
 
-export const Menu = () => {
+
+interface Props {
+  closeMenu: () => void;
+}
+
+export const Menu: React.FC<Props> = ({ closeMenu }) => {
   const [currentCategories, setCurrentCategories] = useState<CategoryMenu[]>([]);
   const [currentSubcategories, setCurrentSubcategories] = useState<CategoryMenu[]>([]);
 
@@ -25,7 +30,7 @@ export const Menu = () => {
 
   return (
     <aside className="absolute left-0 right-0">
-      <nav className="grid grid-cols-3">
+      <nav className="grid grid-cols-3" onMouseLeave={closeMenu}>
         <ul>{
           MENU_OPTIONS.map(category => (
             <li key={category.title} className="bg-white">
@@ -47,6 +52,7 @@ export const Menu = () => {
                   isActive={category.title === currentSubcategory}
                   category={category}
                   onClick={handleSubcategory}
+                  closeMenu={closeMenu}
                 />
               </li>
             ))
@@ -57,7 +63,10 @@ export const Menu = () => {
           <ul>{
             currentSubcategories.map(category => (
               <li key={category.title} className="bg-white">
-                <LinkCategory category={category} />
+                <LinkCategory
+                  category={category}
+                  closeMenu={closeMenu}
+                />
               </li>
             ))
           }</ul>

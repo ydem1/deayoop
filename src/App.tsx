@@ -8,14 +8,18 @@ import { Footer } from 'components/Footer';
 export function App() {
   const [isMenu, setIsMenu] = useState(false);
 
-  const hadndleOnClick = () => {
-    setIsMenu(!isMenu)
+  const hadndleToggleMenu = () => {
+    setIsMenu(!isMenu);
+  };
+
+  const hadndleCloseMenu = () => {
+    setIsMenu(false);
   };
 
   return (
     <div className="app font-raleway">
-      <Header toggleMenu={hadndleOnClick} />
-      {isMenu && <Menu />}
+      <Header toggleMenu={hadndleToggleMenu} />
+      {isMenu && <Menu closeMenu={hadndleCloseMenu} />}
       <Outlet />
       <Footer />
     </div>
