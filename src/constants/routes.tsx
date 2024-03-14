@@ -1,8 +1,10 @@
+const DOMAIN_NAME = 'deayoop';
+
 export const ROUTES = {
-  home: '/',
-  user: '/user',
-  userOrder: '/user/order',
-  userFavourite: '/user/favourite',
-  userHelp: '/user/help',
-  userProfile: '/user/profile',
+  home: `/${DOMAIN_NAME}/`,
+  user: `${DOMAIN_NAME}/user`,
+  userOrder: `${DOMAIN_NAME}/user/order`,
+  userFavourite: `${DOMAIN_NAME}/user/favourite`,
+  userHelp: `${DOMAIN_NAME}/user/help`,
+  userProfile: `${DOMAIN_NAME}/user/profile`,
 };

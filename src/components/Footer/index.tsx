@@ -1,38 +1,39 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../Logo";
+import { ROUTES } from "constants/routes";
 
 const FOOTER_MENU_OPTIONS = [
   {
     label: 'Privacy Policy',
-    url: '/',
+    url: ROUTES.home,
   },
   {
     label: 'Contract-offer',
-    url: '/',
+    url: ROUTES.home,
   },
   {
     label: 'FAQ',
-    url: '/',
+    url: ROUTES.home,
   },
   {
     label: 'Payments',
-    url: '/',
+    url: ROUTES.home,
   },
   {
     label: 'Help',
-    url: '/',
+    url: ROUTES.home,
   },
   {
     label: 'Feedback',
-    url: '/',
+    url: ROUTES.home,
   },
   {
     label: 'Safety rules',
-    url: '/',
+    url: ROUTES.home,
   },
 ];
 
-const STYLE_LINK = 'text-darkBlue text-sm font-semibold hover:scale-105 duration-300';
+const STYLE_LINK = 'text-darkBlue text-sm font-semibold';
 
 export const Footer = () => (
   <footer className="bg-blue">

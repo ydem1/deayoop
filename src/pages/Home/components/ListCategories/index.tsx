@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CATEGOTIES } from "constants/сategories";
+import { ROUTES } from "constants/routes";
 
 
 export const ListCategories = () => {
@@ -10,7 +11,7 @@ export const ListCategories = () => {
       <ul className="flex justify-between px-6">
         {CATEGOTIES.map(category => (
           <li key={category.id}>
-            <Link to={category.url} className="flex flex-col items-center">
+            <Link to={ROUTES.home} className="flex flex-col items-center">
               <div className="bg-grey rounded-full p-9">
                 <img className="size-10" src={category.img} alt={category.title} />
               </div>

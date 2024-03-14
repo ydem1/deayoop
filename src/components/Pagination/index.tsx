@@ -1,5 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import { ROUTES } from "constants/routes";
+
 export const Pagination = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ export const Pagination = () => {
       </button>
 
       <div className="flex gap-1">
-        <Link to='/' className="text-sm text-ligthBlue">
+        <Link to={ROUTES.home} className="text-sm text-ligthBlue">
           Home
         </Link>
 

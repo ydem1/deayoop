@@ -4,31 +4,32 @@ import { NavLink, Outlet } from "react-router-dom";
 import { Pagination } from "components/Pagination";
 import { Rating } from "components/Rating";
 import { USER_CURRENT } from "constants/user";
+import { ROUTES } from "constants/routes";
 
 const USER_PAGES = [
   {
     id: 0,
     icon: 'fa-solid fa-bag-shopping',
     title: 'Order',
-    url: '/user/order',
+    url: ROUTES.userOrder,
   },
   {
     id: 1,
     icon: 'fa-regular fa-heart',
     title: 'Favourite',
-    url: '/user/favourite',
+    url: ROUTES.userFavourite,
   },
   {
     id: 2,
     icon: 'fa-regular fa-life-ring',
     title: 'Help',
-    url: '/user/help',
+    url: ROUTES.userHelp,
   },
   {
     id: 3,
     icon: 'fa-solid fa-gear',
     title: 'Profile',
-    url: '/user/profile',
+    url: ROUTES.userProfile,
   },
 ];
 
@@ -38,7 +39,6 @@ export const User = () => {
     revies,
     rating,
   } = USER_CURRENT;
-
 
   return (
     <main className="container my-16">

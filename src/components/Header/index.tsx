@@ -33,7 +33,7 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
         <div className="flex items-center gap-10">
           <Link
             className="flex gap-3"
-            to='/'
+            to={ROUTES.home}
           >
             <i className="fa-regular fa-heart" />
             <p className="text-black text-sm font-semibold">
