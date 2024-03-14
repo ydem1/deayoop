@@ -6,7 +6,8 @@ import { get } from "httpClient";
 
 import { ArticleColumn } from "./Articles/ArticlesСolumn";
 import { ArticleRow } from "./Articles/ArticlesRow";
-import { ErrorMessage } from "components/ErrorMessage";
+import { Message } from "components/Message";
+import classNames from "classnames";
 
 
 interface Props {
@@ -22,7 +23,8 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
     setIsLoading(true);
     setTimeout(() => {
       get<Offer[]>('offers/all/')
-        .then(setVisableOffers)
+        .then(() => setVisableOffers([]))
+        // .then(setVisableOffers)
         .catch(() => setErrorMessage('Something went wrong try again later'))
         .finally(() => setIsLoading(false));
     }, 1400);
@@ -30,7 +32,11 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
   }, []);
 
   if (errorMessage) {
-    return <ErrorMessage errorMessage={errorMessage} />
+    return <Message message={errorMessage} textColor="error"/>;
+  }
+
+  if (visableOffers.length === 0) {
+    return <Message message={'There are no offers at the moment'} textColor="ligthBlue" />;
   }
 
   return (
@@ -45,7 +51,13 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
         />
 
       </div>) : (
-      < ul className={`grid gap-2 mt-1 ${orientation ? 'grid-cols-3' : 'grid-rows-1'}`
+      < ul className={
+        classNames('grid gap-2 mt-1',
+          {
+            'grid-cols-3': orientation,
+            'grid-rows-1': !orientation,
+          }
+        )
       }>
         {
           visableOffers.map(offer => (
