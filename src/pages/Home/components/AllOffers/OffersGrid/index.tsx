@@ -23,8 +23,7 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
     setIsLoading(true);
     setTimeout(() => {
       get<Offer[]>('offers/all/')
-        .then(() => setVisableOffers([]))
-        // .then(setVisableOffers)
+        .then(setVisableOffers)
         .catch(() => setErrorMessage('Something went wrong try again later'))
         .finally(() => setIsLoading(false));
     }, 1400);
