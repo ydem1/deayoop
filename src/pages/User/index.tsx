@@ -1,10 +1,12 @@
 import classNames from "classnames";
 import { NavLink, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "store/store";
 
 import { Pagination } from "components/Pagination";
 import { Rating } from "components/Rating";
-import { USER_CURRENT } from "constants/user";
 import { ROUTES } from "constants/routes";
+
 
 const USER_PAGES = [
   {
@@ -34,11 +36,13 @@ const USER_PAGES = [
 ];
 
 export const User = () => {
+  const user = useSelector((state: RootState) => state.user);
+
   const {
     fullName,
     revies,
     rating,
-  } = USER_CURRENT;
+  } = user;
 
   return (
     <main className="container my-16">

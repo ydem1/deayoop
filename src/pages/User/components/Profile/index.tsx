@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 
-import { USER_CURRENT } from "constants/user";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "store/store";
+import { updata } from "features/user/userSlice";
 
 export const Profile = () => {
   const [isFormSend, setIsFormSend] = useState(false);
+
+  const user = useSelector((state: RootState) => state.user);
   const {
     fullName,
     phone,
     email,
-  } = USER_CURRENT;
+  } = user;
+
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -22,6 +28,14 @@ export const Profile = () => {
       console.log(value);
       setIsFormSend(true);
       setTimeout(() => setIsFormSend(false), 2000);
+
+      const obj = {
+        fullName: value.fullName,
+        phone: value.phone,
+        email: value.email,
+      }
+
+      dispatch(updata(obj))
     },
     validate: values => {
       const errors: {
@@ -38,8 +52,8 @@ export const Profile = () => {
         errors.fullName = 'FullName is required';
       }
 
-      if (!values.phone) {
-        errors.phone = 'Phone is required';
+      if (values.phone.length !== 11) {
+        errors.phone = 'Phone should have 8 digits';
       }
 
       if (!values.email) {
@@ -88,6 +102,7 @@ export const Profile = () => {
             value={formik.values.fullName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            maxLength={15}
           />
 
           {formik.errors.fullName && (
