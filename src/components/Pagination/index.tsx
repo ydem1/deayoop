@@ -10,7 +10,7 @@ export const Pagination = () => {
 
   const handlePrevBtn = () => {
     if (lastPart === 'user') {
-      navigate('..');
+      navigate(ROUTES.home);
     } else {
       navigate(-1);
     }
