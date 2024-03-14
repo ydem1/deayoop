@@ -6,6 +6,7 @@ import { get } from "httpClient";
 
 import { ArticleColumn } from "./Articles/ArticlesСolumn";
 import { ArticleRow } from "./Articles/ArticlesRow";
+import { ErrorMessage } from "components/ErrorMessage";
 
 
 interface Props {
@@ -15,17 +16,22 @@ interface Props {
 export const OfferGrid: React.FC<Props> = ({ orientation }) => {
   const [visableOffers, setVisableOffers] = useState<Offer[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      get<Offer[]>('offers/all/') 
+      get<Offer[]>('offers/all/')
         .then(setVisableOffers)
-        .catch(e => console.error(e))
+        .catch(() => setErrorMessage('Something went wrong try again later'))
         .finally(() => setIsLoading(false));
     }, 1400);
 
   }, []);
+
+  if (errorMessage) {
+    return <ErrorMessage errorMessage={errorMessage} />
+  }
 
   return (
     isLoading ? (

@@ -91,7 +91,7 @@ export const Profile = () => {
           />
 
           {formik.errors.fullName && (
-            <p className="text-red">
+            <p className="text-error">
               {formik.errors.fullName}
             </p>
           )}
@@ -116,7 +116,7 @@ export const Profile = () => {
           />
 
           {formik.errors.phone && (
-            <p className="text-red">
+            <p className="text-error">
               {formik.errors.phone}
             </p>
           )}
@@ -141,7 +141,7 @@ export const Profile = () => {
           />
 
           {formik.errors.email && (
-            <p className="text-red">
+            <p className="text-error">
               {formik.errors.email}
             </p>
           )}
@@ -167,7 +167,7 @@ export const Profile = () => {
 
         <button
           className="
-            w-[max-content]
+            w-max
             mt-4 p-3
             bg-ligthBlue
             text-white font-semibold text-base
@@ -187,7 +187,7 @@ export const Profile = () => {
           bg-white
           p-6
           text-6xl
-          text-green
+          text-success
           rounded-lg 
         `}
       >

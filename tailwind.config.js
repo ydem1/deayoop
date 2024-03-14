@@ -13,8 +13,8 @@ export default {
       grey: '#eaeaea',
       borderOffer: '#0000004d',
       ligthBlue: '#2177b380',
-      red: '#e53f3f',
-      green: '#40ff00',
+      error: '#e53f3f',
+      success: '#40ff00',
     },
     container: {
       center: true,
