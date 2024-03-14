@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
 import { updata } from "features/user/userSlice";
+import classNames from "classnames";
 
 export const Profile = () => {
   const [isFormSend, setIsFormSend] = useState(false);
@@ -63,6 +64,11 @@ export const Profile = () => {
       return errors;
     }
   });
+
+  const isBtnDisable =
+    fullName === formik.values.fullName &&
+    phone === formik.values.phone &&
+    email === formik.values.email;
 
   const validateEmail = (value: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -181,14 +187,18 @@ export const Profile = () => {
         </div>
 
         <button
-          className="
-            w-max
-            mt-4 p-3
-            bg-ligthBlue
-            text-white font-semibold text-base
-            rounded-lgF
-          "
+          className={classNames(
+           'w-max',
+            'mt-4 p-3',
+            'text-white font-semibold text-base',
+            'rounded-lgF',
+            {
+              'bg-darkBlue': !isBtnDisable,
+              'bg-ligthBlue ': isBtnDisable,
+            }
+            )}
           type="submit"
+          disabled={isBtnDisable}
         >
           Save Changes
         </button>
