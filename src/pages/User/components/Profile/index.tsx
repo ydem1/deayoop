@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
 import { updata } from "features/user/userSlice";
 import classNames from "classnames";
+import { User } from "types/User";
 
 export const Profile = () => {
   const [isFormSend, setIsFormSend] = useState(false);
@@ -14,7 +15,7 @@ export const Profile = () => {
     fullName,
     phone,
     email,
-  } = user;
+  }: Omit<User, 'rating' | 'revies'> = user;
 
   const dispatch = useDispatch();
 
