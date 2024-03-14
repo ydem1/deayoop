@@ -9,7 +9,6 @@ import { ArticleRow } from "./Articles/ArticlesRow";
 import { Message } from "components/Message";
 import classNames from "classnames";
 
-
 interface Props {
   orientation: boolean,
 }
@@ -34,7 +33,7 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
     return <Message message={errorMessage} textColor="error"/>;
   }
 
-  if (visableOffers.length === 0) {
+  if (visableOffers.length === 0 && !isLoading) {
     return <Message message={'There are no offers at the moment'} textColor="ligthBlue" />;
   }
 

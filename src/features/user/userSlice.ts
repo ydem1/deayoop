@@ -3,15 +3,19 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { USER_INIT } from 'constants/userInit'
 import { User } from 'types/User'
 
-const initialState: User = USER_INIT;
+const storedUser = localStorage.getItem('storedUser');
+const initialState = storedUser !== null ? JSON.parse(storedUser) : USER_INIT;
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    updata: (state, action: PayloadAction<Omit<User, 'rating' | 'revies'>>) => (
-      { ...state, ...action.payload }
-    ),
+    updata: (state, action: PayloadAction<Omit<User, 'rating' | 'revies'>>) => {
+      const updataUser = { ...state, ...action.payload };
+      localStorage.setItem('storedUser', JSON.stringify(updataUser));
+
+      return updataUser;
+    },
   },
 });
 
