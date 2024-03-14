@@ -30,7 +30,7 @@ export const Menu: React.FC<Props> = ({ closeMenu }) => {
 
   return (
     <aside className="absolute left-0 right-0">
-      <nav className="grid grid-cols-3" onMouseLeave={closeMenu}>
+      <nav className="grid grid-cols-3">
         <ul>{
           MENU_OPTIONS.map(category => (
             <li key={category.title} className="bg-white">
