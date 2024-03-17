@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import React from "react";
 import { Logo } from "../Logo";
 
-import React from "react";
 import { ROUTES } from "constants/routes";
+import { AllCategoriesBtn } from "./components/AllCategoriesBtn";
+import { HeaderLink } from "./components/HeaderLink";
+import { HEADER_LINK_DEFAULT, LINK_NAME } from "./constants";
 
 interface Props {
   toggleMenu: () => void;
@@ -15,49 +17,30 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => {
         <div className="flex items-center gap-10">
           <Logo />
 
-          <button
-            className="
-              flex items-center 
-              p-2.5 gap-2.5 
-              border border-solid border-black rounded-lg
-            "
-            onClick={toggleMenu}
-          >
-            <i className="fa-solid fa-bars size-5" />
-            <p className="text-black text-sm font-semibold">
-              All Categories
-            </p>
-          </button>
+          <AllCategoriesBtn toggleMenu={toggleMenu} />
         </div>
 
         <div className="flex items-center gap-10">
-          <Link
-            className="flex gap-3"
-            to={ROUTES.home}
-          >
-            <i className="fa-regular fa-heart" />
-            <p className="text-black text-sm font-semibold">
-              Favourite
-            </p>
-          </Link>
+          <HeaderLink
+            url={ROUTES.home}
+            icon="fa-regular fa-heart"
+            styleWrapper="flex gap-3"
+            styleLabel={`${HEADER_LINK_DEFAULT} font-semibold`}
+            label={LINK_NAME.userFavorite}
+          />
 
-          <Link
-            className="text-black text-sm font-bold"
-            to={ROUTES.user}
-          >
-            Log in
-          </Link>
+          <HeaderLink
+            url={ROUTES.user}
+            styleLabel={`${HEADER_LINK_DEFAULT} font-bold`}
+            label={LINK_NAME.userLog}
+          />
 
-          <Link
-            className="
-              bg-darkBlue rounded-lg
-              py-2 px-4
-              text-white text-sm font-bold
-            "
-            to={ROUTES.user}
-          >
-            Sing Up
-          </Link>
+          <HeaderLink
+            url={ROUTES.user}
+            styleWrapper="bg-darkBlue rounded-lg py-2 px-4"
+            styleLabel="text-white text-sm font-bold"
+            label={LINK_NAME.userSing}
+          />
         </div>
       </div>
     </header>
