@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CategoryMenu } from "types/CategoryMenu";
-import classNames from "classnames";
+import cn from "classnames";
 
 interface Props {
   onClick?: (category: CategoryMenu, title: string) => void,
@@ -23,7 +23,6 @@ export const LinkCategory: React.FC<Props> = ({
   const handleOnclick = () => {
     if (category.url && closeMenu) {
       navigate(category.url);
-      console.log(category.url);
       closeMenu();
     } else if (onClick) { 
       onClick(category, category.title)
@@ -32,7 +31,7 @@ export const LinkCategory: React.FC<Props> = ({
 
   return (
     <button className="w-full" onClick={handleOnclick}>
-      <div className={classNames(
+      <div className={cn(
         'flex items-center justify-between py-2 px-4 ',
         { 'bg-blue': isActive },
       )}>

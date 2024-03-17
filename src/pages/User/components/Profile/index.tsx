@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
 import { updata } from "features/user/userSlice";
-import classNames from "classnames";
+import cn from "classnames";
 import { User } from "types/User";
 
 export const Profile = () => {
@@ -188,7 +188,7 @@ export const Profile = () => {
         </div>
 
         <button
-          className={classNames(
+          className={cn(
            'w-max',
             'mt-4 p-3',
             'text-white font-semibold text-base',

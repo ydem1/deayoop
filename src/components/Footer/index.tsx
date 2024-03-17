@@ -15,7 +15,9 @@ export const Footer = () => (
 
       <ul className="flex gap-3">
         {FOOTER_MENU_OPTIONS.map(({ label, url }) => (
-          <LinkItem label={label} url={url} />
+          <li key={`${label}: ${url}`}>
+            <LinkItem label={label} url={url} />
+          </li>
         ))}
       </ul>
     </div>

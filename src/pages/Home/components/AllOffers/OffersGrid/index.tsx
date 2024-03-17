@@ -7,7 +7,7 @@ import { get } from "httpClient";
 import { ArticleColumn } from "./Articles/ArticlesСolumn";
 import { ArticleRow } from "./Articles/ArticlesRow";
 import { Message } from "components/Message";
-import classNames from "classnames";
+import cn from "classnames";
 
 interface Props {
   orientation: boolean,
@@ -50,7 +50,7 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
 
       </div>) : (
       < ul className={
-        classNames('grid gap-2 mt-1',
+        cn('grid gap-2 mt-1',
           {
             'grid-cols-3': orientation,
             'grid-rows-1': !orientation,

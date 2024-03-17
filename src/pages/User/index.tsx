@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { NavLink, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "store/store";
@@ -63,7 +63,7 @@ export const User = () => {
             USER_PAGES.map(page => (
               <li key={page.id}>
                 <NavLink to={page.url} className={({ isActive }) => (
-                  classNames('flex', 'items-center', 'gap-5', 'px-5', 'py-3', {
+                  cn('flex', 'items-center', 'gap-5', 'px-5', 'py-3', {
                     'bg-blue': isActive,
                     'rounded-lg': isActive,
                     'font-semibold': isActive,

@@ -7,13 +7,11 @@ interface Props {
   url: string;
 }
 
-export const LinkItem: React.FC<Props> = ( { label, url } ) => (
-  <li key={label}>
-    <Link
-      className={DEFAULT_CLASSNAME_FOOTER_LINK}
-      to={url}
-    >
-      {label}
-    </Link>
-  </li>
+export const LinkItem: React.FC<Props> = ({ label, url }) => (
+  <Link
+    className={DEFAULT_CLASSNAME_FOOTER_LINK}
+    to={url}
+  >
+    {label}
+  </Link>
 );
