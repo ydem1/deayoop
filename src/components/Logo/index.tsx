@@ -11,7 +11,7 @@ export const Logo = () => {
       "
       to={ROUTES.home}
     >
-      <div className="logo" />
+      <img src="./img/logo/logo.png" alt="Dealyoop" />
     </Link>
   )
 };
