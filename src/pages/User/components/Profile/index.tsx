@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { useFormik } from "formik";
+import { Formik } from "formik";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
 import { patch } from "features/user/userSlice";
 import cn from "classnames";
 import { User } from "types/User";
+import { basicSchema } from "schemas";
+import { Form } from "react-router-dom";
+import { Input } from "./Input";
+
+type UserInput = Omit<User, 'rating' | 'revies'>;
 
 export const Profile = () => {
   const [isFormSend, setIsFormSend] = useState(false);
@@ -15,75 +20,45 @@ export const Profile = () => {
     fullName,
     phone,
     email,
-  }: Omit<User, 'rating' | 'revies'> = user;
+  }: UserInput = user;
 
   const dispatch = useDispatch();
 
-  const formik = useFormik({
-    initialValues: {
-      fullName,
-      phone,
-      email,
-      file: null,
-    },
-    onSubmit: value => {
-      console.log(value);
-      setIsFormSend(true);
-      setTimeout(() => setIsFormSend(false), 2000);
+  const isFormChanged = (values: UserInput) => (
+    values.fullName !== fullName ||
+    values.phone !== phone ||
+    values.email !== email
+  );
 
-      const obj = {
-        fullName: value.fullName,
-        phone: value.phone,
-        email: value.email,
-      }
+  const handleSubmit = (values: UserInput) => {
+    setIsFormSend(true);
+    setTimeout(() => setIsFormSend(false), 2000);
 
-      dispatch(patch(obj))
-    },
-    validate: values => {
-      const errors: {
-        fullName?: string,
-        phone?: string,
-        email?: string,
-      } = {};
-
-      if (!validateEmail(values.email)) {
-        errors.email = 'Invalid email format. Please enter a valid email address.';
-      }
-
-      if (!values.fullName) {
-        errors.fullName = 'FullName is required';
-      }
-
-      if (values.phone.length !== 11) {
-        errors.phone = 'Phone should have 8 digits';
-      }
-
-      if (!values.email) {
-        errors.email = 'Email is required';
-      }
-
-      return errors;
-    }
-  });
-
-  const isBtnDisable =
-    fullName === formik.values.fullName &&
-    phone === formik.values.phone &&
-    email === formik.values.email;
-
-  const validateEmail = (value: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-  const handlePhoneChange = (value: string) => {
-    if (formik.values.phone.length > value.length) {
-      formik.handleChange({ target: { name: 'phone', value } });
-
-      return;
+    const obj = {
+      fullName: values.fullName,
+      phone: values.phone,
+      email: values.email,
     }
 
-    const digitsOnly = value.replace(/\D/g, '');
-    const formattedValue = `+${digitsOnly.slice(0, 1)} ${digitsOnly.slice(1, 4)} ${digitsOnly.slice(4, 8)}`;
-    formik.handleChange({ target: { name: 'phone', value: formattedValue } });
+    dispatch(patch(obj))
+  }
+
+  const formattedPhone = (inputValue: string) => {
+    const digitsOnly = inputValue.replace(/\D/g, '');
+  
+    if (digitsOnly.length === 0) {
+      return '';
+    }
+  
+    let formattedValue = '+';
+  
+    formattedValue += digitsOnly.slice(0, Math.min(1, digitsOnly.length));
+  
+    for (let i = 1; i < digitsOnly.length; i += 3) {
+      formattedValue += ' ' + digitsOnly.slice(i, i + 3);
+    }
+  
+    return formattedValue;
   };
 
   return (
@@ -92,118 +67,75 @@ export const Profile = () => {
         Profile
       </h2>
 
-      <form onSubmit={formik.handleSubmit} className="flex flex-col gap-2">
-        <div className="border border-grey rounded-lg flex py-3 px-4">
-          <label
-            htmlFor='fullName'
-            className=" text-ligthBlue font-semibold text-lg mr-2"
-          >
-            Full Name:
-          </label>
+      <Formik
+        initialValues={{
+          fullName,
+          phone,
+          email,
+          file: null,
+        }}
+        onSubmit={handleSubmit}
+        validationSchema={basicSchema}
+      >
+        {(formikProps) => (
+          <Form onSubmit={formikProps.handleSubmit}>
+            <Input
+              label="Full name"
+              name="fullName"
+              type="text"
+            />
 
-          <input
-            className="grow font-semibold text-base"
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formik.values.fullName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            maxLength={15}
-          />
+            <Input
+              label="Phone"
+              formattedValue={formattedPhone}
+              maxLength={11}
+              name="phone"
+              type="text"
+            />
 
-          {formik.errors.fullName && (
-            <p className="text-error">
-              {formik.errors.fullName}
-            </p>
-          )}
-        </div>
+            <Input
+              label="Email"
+              name="email"
+              type="email"
+            />
 
-        <div className="border border-grey rounded-lg flex py-3 px-4">
-          <label
-            htmlFor='phone'
-            className=" text-ligthBlue font-semibold text-lg mr-2"
-          >
-            Phone:
-          </label>
+            {/* <div className="border border-grey rounded-lg flex flex-col items-center justify-center py-3 px-4">
+         <label
+           htmlFor='file'
+           className=" text-ligthBlue font-semibold text-lg w-full"
+         >
+           <p className="text-center">Upload CV:</p>
+           <p className="text-center">uploaded file: {formik.values.file}</p>
+         </label>
 
-          <input
-            className="grow font-semibold text-base"
-            type="text"
-            id="phone"
-            name="phone"
-            value={formik.values.phone}
-            onChange={(event) => handlePhoneChange(event.target.value)}
-            onBlur={formik.handleBlur}
-          />
+         <input
+           className="hidden"
+           type="file"
+           id="file"
+           name="file"
+           onChange={formik.handleChange}
+         />
+       </div> */}
 
-          {formik.errors.phone && (
-            <p className="text-error">
-              {formik.errors.phone}
-            </p>
-          )}
-        </div>
+            <button
+              className={cn(
+                'w-max',
+                'mt-4 p-3',
+                'text-white font-semibold text-base',
+                'rounded-lg bg-darkBlue',
+                {
+                  'bg-ligthBlue ': !formikProps.isValid || !isFormChanged(formikProps.values),
+                }
+              )}
+              type="submit"
+              disabled={!formikProps.isValid || !isFormChanged(formikProps.values)}
+            >
+              Save Changes
+            </button>
 
-        <div className="border border-grey rounded-lg flex py-3 px-4">
-          <label
-            htmlFor='email'
-            className=" text-ligthBlue font-semibold text-lg mr-2"
-          >
-            Email:
-          </label>
-
-          <input
-            className="grow font-semibold text-base"
-            type="email"
-            id="email"
-            name="email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-
-          {formik.errors.email && (
-            <p className="text-error">
-              {formik.errors.email}
-            </p>
-          )}
-        </div>
-
-        <div className="border border-grey rounded-lg flex flex-col items-center justify-center py-3 px-4">
-          <label
-            htmlFor='file'
-            className=" text-ligthBlue font-semibold text-lg w-full"
-          >
-            <p className="text-center">Upload CV:</p>
-            <p className="text-center">uploaded file: {formik.values.file}</p>
-          </label>
-
-          <input
-            className="hidden"
-            type="file"
-            id="file"
-            name="file"
-            onChange={formik.handleChange}
-          />
-        </div>
-
-        <button
-          className={cn(
-           'w-max',
-            'mt-4 p-3',
-            'text-white font-semibold text-base',
-            'rounded-lgF',
-            {
-              'bg-darkBlue': !isBtnDisable,
-              'bg-ligthBlue ': isBtnDisable,
-            }
-            )}
-          type="submit"
-          disabled={isBtnDisable}
-        >
-          Save Changes
-        </button>
-      </form>
+          </Form>
+        )}
+      </Formik>
 
       <p
         className={`
