@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
-import { updata } from "features/user/userSlice";
+import { patch } from "features/user/userSlice";
 import cn from "classnames";
 import { User } from "types/User";
 
@@ -37,7 +37,7 @@ export const Profile = () => {
         email: value.email,
       }
 
-      dispatch(updata(obj))
+      dispatch(patch(obj))
     },
     validate: values => {
       const errors: {

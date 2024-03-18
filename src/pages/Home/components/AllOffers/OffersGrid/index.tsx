@@ -1,44 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import cn from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "store/store";
 import { Oval } from "react-loader-spinner";
 
-import { Offer } from "types/Offer";
-import { get } from "httpClient";
-
-import { ArticleColumn } from "./Articles/ArticlesСolumn";
-import { ArticleRow } from "./Articles/ArticlesRow";
+import { Article } from "./Article";
 import { Message } from "components/Message";
-import cn from "classnames";
+import { getOffers } from "features/offers/offerSlice";
 
 interface Props {
   displayMode: boolean,
 }
 
 export const OfferGrid: React.FC<Props> = ({ displayMode }) => {
-  const [visableOffers, setVisableOffers] = useState<Offer[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch<AppDispatch>();
+  const { offers, loading, error } = useSelector((state: RootState) => state.offers)
 
   useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      get<Offer[]>('offers/all/')
-        .then(setVisableOffers)
-        .catch(() => setErrorMessage('Something went wrong try again later'))
-        .finally(() => setIsLoading(false));
-    }, 1400);
+    dispatch(getOffers());
+  }, [dispatch]);
 
-  }, []);
-
-  if (errorMessage) {
-    return <Message message={errorMessage} textColor="error"/>;
+  if (error) {
+    return <Message message={error} textColor="error" />;
   }
 
-  if (visableOffers.length === 0 && !isLoading) {
+  if (offers.length === 0 && !loading) {
     return <Message message={'There are no offers at the moment'} textColor="ligthBlue" />;
   }
 
   return (
-    isLoading ? (
+    loading ? (
       <div className="flex justify-center">
         <Oval
           visible={true}
@@ -58,16 +49,9 @@ export const OfferGrid: React.FC<Props> = ({ displayMode }) => {
         )
       }>
         {
-          visableOffers.map(offer => (
+          offers.map(offer => (
             <li key={offer.id}>
-              {displayMode
-                ? (
-                  <ArticleColumn offer={offer} />
-                )
-                : (
-                  <ArticleRow offer={offer} />
-                )
-              }
+              <Article offer={offer} displayMode={displayMode} />
             </li>
           ))
         }

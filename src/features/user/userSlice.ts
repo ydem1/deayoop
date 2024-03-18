@@ -6,19 +6,20 @@ import { User } from 'types/User'
 const storedUser = localStorage.getItem('storedUser');
 const initialState = storedUser !== null ? JSON.parse(storedUser) : USER_INIT;
 
+
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    updata: (state, action: PayloadAction<Omit<User, 'rating' | 'revies'>>) => {
-      const updataUser = { ...state, ...action.payload };
-      localStorage.setItem('storedUser', JSON.stringify(updataUser));
+    patch: (state, action: PayloadAction<Omit<User, 'rating' | 'revies'>>) => {
+      const updatedUser = { ...state, ...action.payload };
+      localStorage.setItem('storedUser', JSON.stringify(updatedUser));
 
-      return updataUser;
+      return updatedUser;
     },
   },
 });
 
-export const { updata } = userSlice.actions;
+export const { patch } = userSlice.actions;
 
 export default userSlice.reducer;
