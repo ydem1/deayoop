@@ -8,7 +8,9 @@ import cn from "classnames";
 import { User } from "types/User";
 import { basicSchema } from "schemas";
 import { Form } from "react-router-dom";
-import { Input } from "./Input";
+import { Input } from "./components/Input";
+import { SendMessage } from "./components/SendMessage";
+import { InputFile } from "./components/InputFile";
 
 type UserInput = Omit<User, 'rating' | 'revies'>;
 
@@ -99,23 +101,7 @@ export const Profile = () => {
               type="email"
             />
 
-            {/* <div className="border border-grey rounded-lg flex flex-col items-center justify-center py-3 px-4">
-         <label
-           htmlFor='file'
-           className=" text-ligthBlue font-semibold text-lg w-full"
-         >
-           <p className="text-center">Upload CV:</p>
-           <p className="text-center">uploaded file: {formik.values.file}</p>
-         </label>
-
-         <input
-           className="hidden"
-           type="file"
-           id="file"
-           name="file"
-           onChange={formik.handleChange}
-         />
-       </div> */}
+            <InputFile />
 
             <button
               className={cn(
@@ -137,20 +123,7 @@ export const Profile = () => {
         )}
       </Formik>
 
-      <p
-        className={`
-          absolute left-1/2 transform -translate-x-1/2
-          transition-all duration-300
-          ${isFormSend ? 'top-1/2 -translate-y-1/2' : '-top-40'}
-          bg-white
-          p-6
-          text-6xl
-          text-success
-          rounded-lg 
-        `}
-      >
-        Changes are saved
-      </p>
+      <SendMessage isFormSend={isFormSend} />
     </div>
   );
 };
