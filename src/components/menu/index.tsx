@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { CategoryMenu } from "types/CategoryMenu";
 import { MENU_OPTIONS } from "constants/menu";
 
-import { LinkCategory } from "./LinkCategory";
+import { LinksList } from "./components/LinksList";
 
 
 interface Props {
@@ -20,7 +20,6 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
 
   const handleCategory = (category: CategoryMenu, title: string) => {
     setCurrentCategories(category.subcategories as []);
-    setCurrentSubcategories([]);
     setCurrentCategory(title)
   };
 
@@ -29,49 +28,38 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
     setCurrentSubcategory(title)
   };
 
+  const handleCloseMenu = () => {
+    closeMenu()
+    setCurrentCategory('');
+    setCurrentSubcategory('');
+    setCurrentCategories([]);
+    setCurrentSubcategories([]);
+  };
+
   return (
     isOpen && (
       <aside className="absolute left-0 right-0">
-        <nav className="grid grid-cols-3" onMouseLeave={closeMenu}>
-          <ul>{
-            MENU_OPTIONS.map(category => (
-              <li key={category.title} className="bg-white">
-                <LinkCategory
-                  isActive={category.title === currentCategory}
-                  category={category}
-                  img={category.img}
-                  onClick={handleCategory}
-                />
-              </li>
-            ))
-          }</ul>
+        <nav className="grid grid-cols-3" onMouseLeave={handleCloseMenu}>
+          <LinksList
+            categories={MENU_OPTIONS}
+            currentCategory={currentCategory}
+            onClick={handleCategory}
+          />
 
           {currentCategories && (
-            <ul>{
-              currentCategories.map(category => (
-                <li key={category.title} className="bg-white">
-                  <LinkCategory
-                    isActive={category.title === currentSubcategory}
-                    category={category}
-                    onClick={handleSubcategory}
-                    closeMenu={closeMenu}
-                  />
-                </li>
-              ))
-            }</ul>
+            <LinksList
+              categories={currentCategories}
+              currentCategory={currentSubcategory}
+              onClick={handleSubcategory}
+              handleClose={handleCloseMenu}
+            />
           )}
 
           {currentSubcategories && (
-            <ul>{
-              currentSubcategories.map(category => (
-                <li key={category.title} className="bg-white">
-                  <LinkCategory
-                    category={category}
-                    closeMenu={closeMenu}
-                  />
-                </li>
-              ))
-            }</ul>
+            <LinksList
+              categories={currentSubcategories}
+              handleClose={handleCloseMenu}
+            />
           )}
         </nav>
       </aside>
