@@ -21,10 +21,5 @@ button:focus {
 
 button,
 a {
-  @apply hover:scale-105 duration-300;
-}
-
-button:disabled,
-a:disabled {
-  @apply hover:scale-100; /* замість hover:scale-105, щоб вимкнути ефект */
+  @apply hover:scale-105 duration-300 disabled:scale-100;
 }

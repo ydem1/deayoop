@@ -11,7 +11,7 @@ export default {
       white: '#fcfcfc',
       darkBlue: '#0d3450',
       grey: '#eaeaea',
-      borderOffer: '#0000004d',
+      borderShadow: '#0000004d',
       ligthBlue: '#2177b380',
       error: '#e53f3f',
       success: '#40ff00',

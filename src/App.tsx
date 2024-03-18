@@ -19,7 +19,7 @@ export function App() {
   return (
     <div className="app font-raleway">
       <Header toggleMenu={hadndleToggleMenu} />
-      {isMenu && <Menu closeMenu={hadndleCloseMenu} />}
+      <Menu closeMenu={hadndleCloseMenu} isOpen={isMenu} />
       <Outlet />
       <Footer />
     </div>

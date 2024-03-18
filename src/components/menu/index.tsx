@@ -8,9 +8,10 @@ import { LinkCategory } from "./LinkCategory";
 
 interface Props {
   closeMenu: () => void;
+  isOpen: boolean;
 }
 
-export const Menu: React.FC<Props> = ({ closeMenu }) => {
+export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
   const [currentCategories, setCurrentCategories] = useState<CategoryMenu[]>([]);
   const [currentSubcategories, setCurrentSubcategories] = useState<CategoryMenu[]>([]);
 
@@ -29,49 +30,51 @@ export const Menu: React.FC<Props> = ({ closeMenu }) => {
   };
 
   return (
-    <aside className="absolute left-0 right-0">
-      <nav className="grid grid-cols-3" onMouseLeave={closeMenu}>
-        <ul>{
-          MENU_OPTIONS.map(category => (
-            <li key={category.title} className="bg-white">
-              <LinkCategory
-                isActive={category.title === currentCategory}
-                category={category}
-                img={category.img}
-                onClick={handleCategory}
-              />
-            </li>
-          ))
-        }</ul>
-
-        {currentCategories && (
+    isOpen && (
+      <aside className="absolute left-0 right-0">
+        <nav className="grid grid-cols-3" onMouseLeave={closeMenu}>
           <ul>{
-            currentCategories.map(category => (
+            MENU_OPTIONS.map(category => (
               <li key={category.title} className="bg-white">
                 <LinkCategory
-                  isActive={category.title === currentSubcategory}
+                  isActive={category.title === currentCategory}
                   category={category}
-                  onClick={handleSubcategory}
-                  closeMenu={closeMenu}
+                  img={category.img}
+                  onClick={handleCategory}
                 />
               </li>
             ))
           }</ul>
-        )}
 
-        {currentSubcategories && (
-          <ul>{
-            currentSubcategories.map(category => (
-              <li key={category.title} className="bg-white">
-                <LinkCategory
-                  category={category}
-                  closeMenu={closeMenu}
-                />
-              </li>
-            ))
-          }</ul>
-        )}
-      </nav>
-    </aside>
+          {currentCategories && (
+            <ul>{
+              currentCategories.map(category => (
+                <li key={category.title} className="bg-white">
+                  <LinkCategory
+                    isActive={category.title === currentSubcategory}
+                    category={category}
+                    onClick={handleSubcategory}
+                    closeMenu={closeMenu}
+                  />
+                </li>
+              ))
+            }</ul>
+          )}
+
+          {currentSubcategories && (
+            <ul>{
+              currentSubcategories.map(category => (
+                <li key={category.title} className="bg-white">
+                  <LinkCategory
+                    category={category}
+                    closeMenu={closeMenu}
+                  />
+                </li>
+              ))
+            }</ul>
+          )}
+        </nav>
+      </aside>
+    )
   );
 };

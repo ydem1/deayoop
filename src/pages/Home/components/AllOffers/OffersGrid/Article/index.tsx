@@ -19,7 +19,7 @@ export const Article: React.FC<Props> = ({
   displayMode,
 }) => (
   <article className={cn(
-    'border border-borderOffer rounded-lg',
+    'border border-borderShadow rounded-lg',
     { 'flex justify-between': !displayMode }
   )}>
     <ImgArticle path={path} imgStyle={cn(

@@ -5,35 +5,7 @@ import { RootState } from "store/store";
 
 import { Pagination } from "components/Pagination";
 import { Rating } from "components/Rating";
-import { ROUTES } from "constants/routes";
-
-
-const USER_PAGES = [
-  {
-    id: 0,
-    icon: 'fa-solid fa-bag-shopping',
-    title: 'Order',
-    url: ROUTES.userOrder,
-  },
-  {
-    id: 1,
-    icon: 'fa-regular fa-heart',
-    title: 'Favourite',
-    url: ROUTES.userFavourite,
-  },
-  {
-    id: 2,
-    icon: 'fa-regular fa-life-ring',
-    title: 'Help',
-    url: ROUTES.userHelp,
-  },
-  {
-    id: 3,
-    icon: 'fa-solid fa-gear',
-    title: 'Profile',
-    url: ROUTES.userProfile,
-  },
-];
+import { USER_PAGES } from "./constants";
 
 export const User = () => {
   const user = useSelector((state: RootState) => state.user);
