@@ -3,7 +3,7 @@ import { Formik } from "formik";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
-import { patch } from "features/user/userSlice";
+import { saveCurrentUser, updateEmail, updateFullName, updatePhone } from "features/user/userSlice";
 import cn from "classnames";
 import { User } from "types/User";
 import { basicSchema } from "schemas";
@@ -36,30 +36,28 @@ export const Profile = () => {
     setIsFormSend(true);
     setTimeout(() => setIsFormSend(false), 2000);
 
-    const obj = {
-      fullName: values.fullName,
-      phone: values.phone,
-      email: values.email,
-    }
+    dispatch(updateFullName(values.fullName));
+    dispatch(updatePhone(values.phone));
+    dispatch(updateEmail(values.email));
 
-    dispatch(patch(obj))
+    dispatch(saveCurrentUser());
   }
 
   const formattedPhone = (inputValue: string) => {
     const digitsOnly = inputValue.replace(/\D/g, '');
-  
+
     if (digitsOnly.length === 0) {
       return '';
     }
-  
+
     let formattedValue = '+';
-  
+
     formattedValue += digitsOnly.slice(0, Math.min(1, digitsOnly.length));
-  
+
     for (let i = 1; i < digitsOnly.length; i += 3) {
       formattedValue += ' ' + digitsOnly.slice(i, i + 3);
     }
-  
+
     return formattedValue;
   };
 
