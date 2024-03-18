@@ -3,7 +3,7 @@ import { ImgArticle } from "./components/ImgArticle";
 import { DescriptionArticle } from "./components/DescriptionArticle";
 
 interface Props {
-  offer: Offer,
+  offer: Offer;
 }
 
 export const ArticleColumn: React.FC<Props> = ({ offer: {

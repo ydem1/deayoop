@@ -1,14 +1,14 @@
+import { getCurrentPage } from "features/fuctions/getCurrentPage";
 import { useLocation } from "react-router-dom";
 
 export const Other = () => {
   const { pathname } = useLocation();
-  const lastPart = pathname.split('/').slice(-1)[0];
-  const currentpage = lastPart.charAt(0).toUpperCase() + lastPart.slice(1);
-
+  const [, currentPage] = getCurrentPage(pathname);
+  
   return (
     <div className="grow">
       <h2 className="font-bold text-2xl">
-        {currentpage}
+        {currentPage}
       </h2>
     </div>
   );

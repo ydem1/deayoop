@@ -10,10 +10,10 @@ import { Message } from "components/Message";
 import cn from "classnames";
 
 interface Props {
-  orientation: boolean,
+  displayMode: boolean,
 }
 
-export const OfferGrid: React.FC<Props> = ({ orientation }) => {
+export const OfferGrid: React.FC<Props> = ({ displayMode }) => {
   const [visableOffers, setVisableOffers] = useState<Offer[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -52,15 +52,15 @@ export const OfferGrid: React.FC<Props> = ({ orientation }) => {
       < ul className={
         cn('grid gap-2 mt-1',
           {
-            'grid-cols-3': orientation,
-            'grid-rows-1': !orientation,
+            'grid-cols-3': displayMode,
+            'grid-rows-1': !displayMode,
           }
         )
       }>
         {
           visableOffers.map(offer => (
             <li key={offer.id}>
-              {orientation
+              {displayMode
                 ? (
                   <ArticleColumn offer={offer} />
                 )
