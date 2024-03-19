@@ -1,6 +1,6 @@
 import React from "react";
 import { CategoryMenu } from "types/CategoryMenu";
-import { LinkCategory } from "../LinkCategory";
+import { CategoryLink } from "../CategoryLink";
 
 interface Props {
   categories: CategoryMenu[];
@@ -19,7 +19,7 @@ export const LinksList: React.FC<Props> = ({
     <ul>{
       categories.map(category => (
         <li key={category.title} className="bg-white">
-          <LinkCategory
+          <CategoryLink
             isActive={category.title === currentCategory}
             category={category}
             img={category.img}

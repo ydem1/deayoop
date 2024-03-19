@@ -7,7 +7,7 @@ interface Props {
   isActive?: boolean,
 }
 
-export const ItemCategory: React.FC<Props> = ({ img, isActive, title }) => (
+export const Category: React.FC<Props> = ({ img, isActive, title }) => (
   <div className={cn(
     'flex items-center justify-between py-2 px-4 ',
     { 'bg-blue': isActive },
