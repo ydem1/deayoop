@@ -1,7 +1,7 @@
-import React from "react";
-import { Logo } from "../Logo";
-
 import { ROUTES } from "constants/routes";
+import React from "react";
+
+import { Logo } from "../Logo";
 import { AllCategoriesBtn } from "./components/AllCategoriesBtn";
 import { HeaderLink } from "./components/HeaderLink";
 import { HEADER_LINK_DEFAULT, LINK_NAME } from "./constants";
@@ -21,7 +21,7 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => (
 
       <div className="flex items-center gap-10">
         <HeaderLink
-          url={ROUTES.home}
+          href={ROUTES.home}
           icon="fa-regular fa-heart"
           styleWrapper="flex gap-3"
           styleLabel={`${HEADER_LINK_DEFAULT} font-semibold`}
@@ -29,13 +29,13 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => (
         />
 
         <HeaderLink
-          url={ROUTES.user}
+          href={ROUTES.user}
           styleLabel={`${HEADER_LINK_DEFAULT} font-bold`}
           label={LINK_NAME.userLog}
         />
 
         <HeaderLink
-          url={ROUTES.user}
+          href={ROUTES.user}
           styleWrapper="bg-darkBlue rounded-lg py-2 px-4"
           styleLabel="text-white text-sm font-bold"
           label={LINK_NAME.userSing}

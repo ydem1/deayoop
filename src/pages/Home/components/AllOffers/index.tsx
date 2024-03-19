@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { OfferGrid } from "./OffersGrid";
 
 export const AllOffers = () => {

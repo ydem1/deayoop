@@ -1,5 +1,6 @@
 import React from "react";
 import { CategoryMenu } from "types/CategoryMenu";
+
 import { CategoryLink } from "../CategoryLink";
 
 interface Props {

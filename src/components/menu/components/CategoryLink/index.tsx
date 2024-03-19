@@ -1,7 +1,7 @@
+import cn from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
 import { CategoryMenu } from "types/CategoryMenu";
-import { Category } from "./Category";
 
 interface Props {
   onClick?: (category: CategoryMenu, title: string) => void,
@@ -18,9 +18,9 @@ export const CategoryLink: React.FC<Props> = ({
   isActive,
   closeMenu,
 }) => {
-  const { url = '', title } = category;
+  const { href = '', title } = category;
   const handleOnclick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (closeMenu && url !== '') {
+    if (closeMenu && href !== '') {
       closeMenu();
     } else if (onClick) {
       event.preventDefault();
@@ -29,8 +29,19 @@ export const CategoryLink: React.FC<Props> = ({
   };
 
   return (
-    <Link to={url} onClick={handleOnclick}>
-      <Category title={title} img={img} isActive={isActive} />
+    <Link to={href} onClick={handleOnclick}>
+      <div className={cn(
+        'flex items-center justify-between py-2 px-4 ',
+        { 'bg-blue': isActive },
+      )}>
+        <div className="flex items-center gap-4">
+          {img && <img className="size-5" src={img} alt={title} />}
+
+          <p className="text-black text-sm">{title}</p>
+        </div>
+
+        <i className="fa-solid fa-chevron-right" />
+      </div>
     </Link>
   );
 };

@@ -1,10 +1,10 @@
 import cn from "classnames";
-import { NavLink, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "store/store";
-
 import { Pagination } from "components/Pagination";
 import { Rating } from "components/Rating";
+import { useSelector } from "react-redux";
+import { NavLink, Outlet } from "react-router-dom";
+import { RootState } from "store/store";
+
 import { USER_PAGES } from "./constants";
 
 export const User = () => {
@@ -34,7 +34,7 @@ export const User = () => {
           <ul>{
             USER_PAGES.map(page => (
               <li key={page.id}>
-                <NavLink to={page.url} className={({ isActive }) => (
+                <NavLink to={page.href} className={({ isActive }) => (
                   cn('flex', 'items-center', 'gap-5', 'px-5', 'py-3', {
                     'bg-blue': isActive,
                     'rounded-lg': isActive,

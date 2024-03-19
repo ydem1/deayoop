@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
-import { CategoryMenu } from "types/CategoryMenu";
 import { MENU_OPTIONS } from "constants/menu";
+import React, { useState } from "react";
+import { CategoryMenu } from "types/CategoryMenu";
 
 import { LinksList } from "./components/LinksList";
 

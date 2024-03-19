@@ -1,7 +1,6 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import { ROUTES } from "constants/routes";
 import { getCurrentPage } from "features/functions/getCurrentPage";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export const Pagination = () => {
   const navigate = useNavigate();

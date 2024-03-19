@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-
 import { ROUTES } from "constants/routes";
+import { Link } from "react-router-dom";
 
 export const Logo = () => (
   <Link

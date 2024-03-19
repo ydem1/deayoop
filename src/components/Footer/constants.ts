@@ -3,32 +3,42 @@ import { ROUTES } from "constants/routes";
 export const FOOTER_MENU_OPTIONS = [
   {
     label: 'Privacy Policy',
-    url: ROUTES.home,
+    href: ROUTES.home,
   },
   {
     label: 'Contract-offer',
-    url: ROUTES.home,
+    href: ROUTES.home,
   },
   {
     label: 'FAQ',
-    url: ROUTES.home,
+    href: ROUTES.home,
   },
   {
     label: 'Payments',
-    url: ROUTES.home,
+    href: ROUTES.home,
   },
   {
     label: 'Help',
-    url: ROUTES.home,
+    href: ROUTES.home,
   },
   {
     label: 'Feedback',
-    url: ROUTES.home,
+    href: ROUTES.home,
   },
   {
     label: 'Safety rules',
-    url: ROUTES.home,
+    href: ROUTES.home,
   },
 ];
 
-export const DEFAULT_CLASSNAME_FOOTER_LINK = 'text-darkBlue text-sm font-semibold';
+export const FOOTER_MENU_SOCIAL = [
+  {
+    label: 'support@dealyoop.com',
+    href: 'mailto:support@dealyoop.com',
+  },
+  {
+    label: '(425) 505-3804',
+    href: 'tel:+4255053804',
+  },
+];
+

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
-  url: string;
+  href: string;
   icon?: string;
   styleWrapper?: string;
   styleLabel: string;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const HeaderLink: React.FC<Props> = ({
-  url,
+  href,
   icon,
   styleWrapper = "",
   styleLabel,
@@ -19,7 +19,7 @@ export const HeaderLink: React.FC<Props> = ({
   return (
     <Link
       className={styleWrapper}
-      to={url}
+      to={href}
     >
       {icon && <i className={icon} />}
       <p className={styleLabel}>

@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { Formik } from "formik";
-
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "store/store";
-import { saveCurrentUser, updateEmail, updateFullName, updatePhone } from "features/user/userSlice";
 import cn from "classnames";
-import { User } from "types/User";
-import { basicSchema } from "schemas";
+import { saveCurrentUser, updateEmail, updateFullName, updatePhone } from "features/user/userSlice";
+import { Formik } from "formik";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Form } from "react-router-dom";
+import { basicSchema } from "schemas";
+import { RootState } from "store/store";
+import { User } from "types/User";
+
 import { Input } from "./components/Input";
-import { SendMessage } from "./components/SendMessage";
 import { InputFile } from "./components/InputFile";
+import { SendMessage } from "./components/SendMessage";
 
 type UserInput = Omit<User, 'rating' | 'revies'>;
 
