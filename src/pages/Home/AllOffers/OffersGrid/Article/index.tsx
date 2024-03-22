@@ -1,8 +1,8 @@
 import cn from "classnames";
 import { Offer } from "types/Offer";
 
-import { DescriptionArticle } from "./components/DescriptionArticle";
-import { ImgArticle } from "./components/ImgArticle";
+import { DescriptionArticle } from "./DescriptionArticle";
+import { ImgArticle } from "./ImgArticle";
 
 interface Props {
   offer: Offer;

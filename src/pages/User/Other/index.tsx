@@ -1,5 +1,5 @@
-import { getCurrentPage } from "utils/functions/getCurrentPage";
 import { useLocation } from "react-router-dom";
+import { getCurrentPage } from "utils/functions/getCurrentPage";
 
 export const Other = () => {
   const { pathname } = useLocation();

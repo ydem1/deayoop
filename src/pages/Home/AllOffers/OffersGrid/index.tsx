@@ -1,12 +1,13 @@
 import cn from "classnames";
 import { Message } from "components/Message";
-import { getOffers } from "redux/offers/offerSlice";
 import React, { useEffect } from "react";
 import { Oval } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
+import { getOffers } from "redux/offers/offerSlice";
 import { AppDispatch, RootState } from "store/store";
 
 import { Article } from "./Article";
+
 
 interface Props {
   displayMode: boolean,

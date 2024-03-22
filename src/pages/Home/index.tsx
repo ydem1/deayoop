@@ -1,6 +1,6 @@
-import { AllOffers } from "./components/AllOffers";
-import { ListCategories } from "./components/ListCategories";
-import { Poster } from "./components/Poster";
+import { AllOffers } from "./AllOffers";
+import { ListCategories } from "./ListCategories";
+import { Poster } from "./Poster";
 
 
 export const Home = () => (

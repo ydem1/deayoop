@@ -2,8 +2,8 @@ import { App } from 'App.tsx';
 import { ROUTES as path } from 'constants/routes.tsx';
 import { Home } from 'pages/Home';
 import { User } from 'pages/User';
-import { Other } from 'pages/User/components/Other';
-import { Profile } from 'pages/User/components/Profile';
+import { Other } from 'pages/User/Other';
+import { Profile } from 'pages/User/Profile';
 import { createBrowserRouter } from 'react-router-dom'
 
 export const router = createBrowserRouter([

@@ -8,9 +8,9 @@ import { basicSchema } from "schemas";
 import { RootState } from "store/store";
 import { User } from "types/User";
 
-import { Input } from "./components/Input";
-import { InputFile } from "./components/InputFile";
-import { SendMessage } from "./components/SendMessage";
+import { Input } from "./Input";
+import { InputFile } from "./InputFile";
+import { SendMessage } from "./SendMessage";
 
 type UserInput = Omit<User, 'rating' | 'revies'>;
 
