@@ -9,7 +9,7 @@ export const Pagination = () => {
 
   const handlePrevBtn = () => {
     if (lastPart === 'user') {
-      navigate(ROUTES.home);
+      navigate(ROUTES.HOME);
     } else {
       navigate(-1);
     }
@@ -26,7 +26,7 @@ export const Pagination = () => {
       </button>
 
       <div className="flex gap-1">
-        <Link to={ROUTES.home} className="text-sm text-ligthBlue">
+        <Link to={ROUTES.HOME} className="text-sm text-ligthBlue">
           Home
         </Link>
 

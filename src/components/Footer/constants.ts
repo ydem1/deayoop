@@ -3,31 +3,31 @@ import { ROUTES } from "constants/routes";
 export const FOOTER_MENU_OPTIONS = [
   {
     label: 'Privacy Policy',
-    href: ROUTES.home,
+    href: ROUTES.HOME,
   },
   {
     label: 'Contract-offer',
-    href: ROUTES.home,
+    href: ROUTES.HOME,
   },
   {
     label: 'FAQ',
-    href: ROUTES.home,
+    href: ROUTES.HOME,
   },
   {
     label: 'Payments',
-    href: ROUTES.home,
+    href: ROUTES.HOME,
   },
   {
     label: 'Help',
-    href: ROUTES.home,
+    href: ROUTES.HOME,
   },
   {
     label: 'Feedback',
-    href: ROUTES.home,
+    href: ROUTES.HOME,
   },
   {
     label: 'Safety rules',
-    href: ROUTES.home,
+    href: ROUTES.HOME,
   },
 ];
 

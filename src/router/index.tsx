@@ -1,5 +1,5 @@
 import { App } from 'App.tsx';
-import { ROUTES as path } from 'constants/routes.tsx';
+import { ROUTES } from 'constants/routes.tsx';
 import { Home } from 'pages/Home';
 import { User } from 'pages/User';
 import { Other } from 'pages/User/Other';
@@ -11,27 +11,27 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: path.home,
+        path: ROUTES.HOME,
         element: <Home />
       },
       {
-        path: path.user,
+        path: ROUTES.USER,
         element: <User />,
         children: [
           {
-            path: path.userOrder,
+            path: ROUTES.USER_ORDER,
             element: <Other />
           },
           {
-            path: path.userFavourite,
+            path: ROUTES.USER_FAVOURITE,
             element: <Other />
           },
           {
-            path: path.userHelp,
+            path: ROUTES.USER_HELP,
             element: <Other />
           },
           {
-            path: path.userProfile,
+            path: ROUTES.USER_PROFILE,
             element: <Profile />
           }
         ]

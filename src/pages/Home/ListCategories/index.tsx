@@ -10,7 +10,7 @@ export const ListCategories = () => (
     <ul className="flex justify-between px-6">
       {CATEGOTIES.map(category => (
         <li key={category.id}>
-          <Link to={ROUTES.home} className="flex flex-col items-center">
+          <Link to={ROUTES.HOME} className="flex flex-col items-center">
             <div className="bg-grey rounded-full p-9">
               <img className="size-10" src={category.img} alt={category.title} />
             </div>
