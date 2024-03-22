@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import offerSlice from 'features/offers/offerSlice';
-import userSlice from 'features/user/userSlice';
+import offerSlice from 'redux/offers/offerSlice';
+import userSlice from 'redux/user/userSlice';
 
 export const store = configureStore({
   reducer: {

@@ -1,4 +1,4 @@
-import { getCurrentPage } from "features/functions/getCurrentPage";
+import { getCurrentPage } from "utils/functions/getCurrentPage";
 import { useLocation } from "react-router-dom";
 
 export const Other = () => {

@@ -1,6 +1,6 @@
 import cn from "classnames";
 import { Message } from "components/Message";
-import { getOffers } from "features/offers/offerSlice";
+import { getOffers } from "redux/offers/offerSlice";
 import React, { useEffect } from "react";
 import { Oval } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";

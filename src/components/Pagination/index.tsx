@@ -1,5 +1,5 @@
 import { ROUTES } from "constants/routes";
-import { getCurrentPage } from "features/functions/getCurrentPage";
+import { getCurrentPage } from "utils/functions/getCurrentPage";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export const Pagination = () => {

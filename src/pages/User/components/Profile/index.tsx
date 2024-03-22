@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { saveCurrentUser, updateEmail, updateFullName, updatePhone } from "features/user/userSlice";
+import { saveCurrentUser, updateEmail, updateFullName, updatePhone } from "redux/user/userSlice";
 import { Formik } from "formik";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
