@@ -1,4 +1,4 @@
-import { MENU_OPTIONS } from "constants/Menu";
+import { MENU_OPTIONS } from "constants/menu";
 import React, { useState } from "react";
 import { CategoryMenu } from "types/CategoryMenu";
 
