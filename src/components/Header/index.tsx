@@ -1,10 +1,9 @@
-import { ROUTES } from "constants/routes";
 import React from "react";
 
 import { Logo } from "../Logo";
-import { AllCategoriesBtn } from "./components/AllCategoriesBtn";
-import { HeaderLink } from "./components/HeaderLink";
-import { HEADER_LINK_DEFAULT, LINK_NAME } from "./constants";
+import { AllCategoriesBtn } from "./AllCategoriesBtn";
+import { USER_LINKS } from "./constants";
+import { HeaderLink } from "./HeaderLink";
 
 interface Props {
   toggleMenu: () => void;
@@ -15,32 +14,22 @@ export const Header: React.FC<Props> = ({ toggleMenu }) => (
     <div className="container flex items-center justify-between py-3.5">
       <div className="flex items-center gap-10">
         <Logo />
-
         <AllCategoriesBtn toggleMenu={toggleMenu} />
       </div>
 
-      <div className="flex items-center gap-10">
-        <HeaderLink
-          href={ROUTES.home}
-          icon="fa-regular fa-heart"
-          styleWrapper="flex gap-3"
-          styleLabel={`${HEADER_LINK_DEFAULT} font-semibold`}
-          label={LINK_NAME.userFavorite}
-        />
-
-        <HeaderLink
-          href={ROUTES.user}
-          styleLabel={`${HEADER_LINK_DEFAULT} font-bold`}
-          label={LINK_NAME.userLog}
-        />
-
-        <HeaderLink
-          href={ROUTES.user}
-          styleWrapper="bg-darkBlue rounded-lg py-2 px-4"
-          styleLabel="text-white text-sm font-bold"
-          label={LINK_NAME.userSing}
-        />
-      </div>
+      <ul className="flex items-center gap-10">
+        {USER_LINKS.map(link => (
+          <li key={link.label} className="flex">
+            <HeaderLink
+              href={link.href}
+              icon={link?.icon}
+              wrapperClassName={link.wrapperClassName}
+              labelClassName={link.labelClassName}
+              label={link.label}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   </header>
 );
