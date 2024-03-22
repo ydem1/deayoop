@@ -2,6 +2,6 @@
 export interface CategoryMenu {
   title: string;
   img?: string;
-  url?: string;
+  href?: string;
   subcategories?: CategoryMenu[]; 
 }

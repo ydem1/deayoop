@@ -1,9 +1,8 @@
+import { MENU_OPTIONS } from "constants/Menu";
 import React, { useState } from "react";
-
 import { CategoryMenu } from "types/CategoryMenu";
-import { MENU_OPTIONS } from "constants/menu";
 
-import { LinksList } from "./components/LinksList";
+import { LinksList } from "./LinksList";
 
 
 interface Props {

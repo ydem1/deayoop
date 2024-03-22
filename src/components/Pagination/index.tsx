@@ -1,7 +1,6 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import { ROUTES } from "constants/routes";
-import { getCurrentPage } from "features/functions/getCurrentPage";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { getCurrentPage } from "utils/functions/getCurrentPage";
 
 export const Pagination = () => {
   const navigate = useNavigate();
@@ -10,7 +9,7 @@ export const Pagination = () => {
 
   const handlePrevBtn = () => {
     if (lastPart === 'user') {
-      navigate(ROUTES.home);
+      navigate(ROUTES.HOME);
     } else {
       navigate(-1);
     }
@@ -27,7 +26,7 @@ export const Pagination = () => {
       </button>
 
       <div className="flex gap-1">
-        <Link to={ROUTES.home} className="text-sm text-ligthBlue">
+        <Link to={ROUTES.HOME} className="text-sm text-ligthBlue">
           Home
         </Link>
 

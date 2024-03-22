@@ -1,37 +1,37 @@
-import { createBrowserRouter } from 'react-router-dom'
 import { App } from 'App.tsx';
+import { ROUTES } from 'constants/routes.tsx';
 import { Home } from 'pages/Home';
 import { User } from 'pages/User';
-import { Other } from 'pages/User/components/Other';
-import { Profile } from 'pages/User/components/Profile';
-import { ROUTES as path } from 'constants/routes.tsx';
+import { Other } from 'pages/User/Other';
+import { Profile } from 'pages/User/Profile';
+import { createBrowserRouter } from 'react-router-dom'
 
 export const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       {
-        path: path.home,
+        path: ROUTES.HOME,
         element: <Home />
       },
       {
-        path: path.user,
+        path: ROUTES.USER,
         element: <User />,
         children: [
           {
-            path: path.userOrder,
+            path: ROUTES.USER_ORDER,
             element: <Other />
           },
           {
-            path: path.userFavourite,
+            path: ROUTES.USER_FAVOURITE,
             element: <Other />
           },
           {
-            path: path.userHelp,
+            path: ROUTES.USER_HELP,
             element: <Other />
           },
           {
-            path: path.userProfile,
+            path: ROUTES.USER_PROFILE,
             element: <Profile />
           }
         ]
