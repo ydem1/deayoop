@@ -17,18 +17,38 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
   const [currentCategory, setCurrentCategory] = useState('');
   const [currentSubcategory, setCurrentSubcategory] = useState('');
 
-  const handleCategory = (category: CategoryMenu, title: string) => {
-    setCurrentCategories(category.subcategories as []);
-    setCurrentCategory(title)
+  const handleCategory = (
+    category: CategoryMenu,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    const { href = '', title } = category;
+
+    if (href !== '') {
+      handleCloseMenu();
+    } else {
+      event.preventDefault();
+      setCurrentCategories(category.subcategories as []);
+      setCurrentCategory(title);
+    }
   };
 
-  const handleSubcategory = (category: CategoryMenu, title: string) => {
-    setCurrentSubcategories(category.subcategories as [])
-    setCurrentSubcategory(title)
+  const handleSubcategory = (
+    category: CategoryMenu,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    const { href = '', title } = category;
+
+    if (href !== '') {
+      handleCloseMenu();
+    } else {
+      event.preventDefault();
+      setCurrentSubcategories(category.subcategories as [])
+      setCurrentSubcategory(title);
+    }
   };
 
   const handleCloseMenu = () => {
-    closeMenu()
+    closeMenu();
     setCurrentCategory('');
     setCurrentSubcategory('');
     setCurrentCategories([]);
@@ -50,14 +70,13 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
               categories={currentCategories}
               currentCategory={currentSubcategory}
               onClick={handleSubcategory}
-              handleClose={handleCloseMenu}
             />
           )}
 
           {currentSubcategories && (
             <CategoryList
               categories={currentSubcategories}
-              handleClose={handleCloseMenu}
+              onClick={handleCloseMenu}
             />
           )}
         </nav>

@@ -6,15 +6,16 @@ import { Category } from "./CategoryItem";
 interface Props {
   categories: CategoryMenu[];
   currentCategory?: string;
-  onClick?: (category: CategoryMenu, title: string) => void,
-  handleClose?: () => void,
+  onClick: (
+    category: CategoryMenu,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => void,
 }
 
 export const CategoryList: React.FC<Props> = ({
   categories,
   currentCategory,
   onClick,
-  handleClose,
 }) => (
   <ul>{
     categories.map(category => (
@@ -24,7 +25,6 @@ export const CategoryList: React.FC<Props> = ({
         category={category}
         img={category.img}
         onClick={onClick}
-        closeMenu={handleClose}
       />
     ))
   }</ul>

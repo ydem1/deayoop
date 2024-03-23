@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { CategoryMenu } from "types/CategoryMenu";
 
 interface Props {
-  onClick?: (category: CategoryMenu, title: string) => void,
   category: CategoryMenu,
+  onClick: (
+    category: CategoryMenu,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => void,
   img?: string,
-  isActive?: boolean,
-  closeMenu?: () => void,
+  isActive: boolean,
 }
 
 export const Category: React.FC<Props> = ({
@@ -16,34 +18,21 @@ export const Category: React.FC<Props> = ({
   category,
   img,
   isActive,
-  closeMenu,
-}) => {
-  const { href = '', title } = category;
-  const handleOnclick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (closeMenu && href !== '') {
-      closeMenu();
-    } else if (onClick) {
-      event.preventDefault();
-      onClick(category, category.title)
-    }
-  };
+}) => (
+  <li className="bg-white">
+    <Link to={category.href ? category.href : ''} onClick={(event) => onClick(category, event)}>
+      <div className={cn(
+        'flex items-center justify-between py-2 px-4 ',
+        { 'bg-blue': isActive },
+      )}>
+        <div className="flex items-center gap-4">
+          {img && <img className="size-5" src={img} alt={category.title} />}
 
-  return (
-    <li key={category.title} className="bg-white">
-      <Link to={href} onClick={handleOnclick}>
-        <div className={cn(
-          'flex items-center justify-between py-2 px-4 ',
-          { 'bg-blue': isActive },
-        )}>
-          <div className="flex items-center gap-4">
-            {img && <img className="size-5" src={img} alt={title} />}
-
-            <p className="text-black text-sm">{title}</p>
-          </div>
-
-          <i className="fa-solid fa-chevron-right" />
+          <p className="text-black text-sm">{category.title}</p>
         </div>
-      </Link>
-    </li>
-  );
-};
+
+        <i className="fa-solid fa-chevron-right" />
+      </div>
+    </Link>
+  </li>
+);
