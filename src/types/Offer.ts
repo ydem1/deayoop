@@ -5,7 +5,7 @@ export interface Offer {
   slug: string;
   title: string;
   category: OfferCategory;
-  description: null | string;
+  description: string;
   path: string;
   rating: number;
   tags: never[];

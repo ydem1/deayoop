@@ -2,11 +2,11 @@ import React from "react";
 
 
 interface Props {
-  message: string,
+  children: React.ReactNode,
   textColor: string,
 }
 
-export const Message: React.FC<Props> = ({ message, textColor }) => (
+export const InfoMessage: React.FC<Props> = ({ children, textColor }) => (
   <p
     className={`
     font-bold text-4xl text-${textColor}
@@ -14,7 +14,7 @@ export const Message: React.FC<Props> = ({ message, textColor }) => (
     size-max mx-auto my-6 p-4
   `}
   >
-    {message}
+    {children}
   </p>
 );
 

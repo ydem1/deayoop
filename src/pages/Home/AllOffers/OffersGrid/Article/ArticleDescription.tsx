@@ -4,10 +4,10 @@ interface Props {
   categoryTitle: string;
   rating: number;
   title: string;
-  description: string | null;
+  description: string;
 }
 
-export const DescriptionArticle: React.FC<Props> = ({
+export const ArticleDescription: React.FC<Props> = ({
   categoryTitle,
   rating,
   title,
