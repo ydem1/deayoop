@@ -4,7 +4,9 @@ import { OfferGrid } from "./OffersGrid";
 
 
 export const AllOffers = () => {
-  const [toggle, setToggle] = useState(true);
+  const [isColumn, setIsColumn] = useState(true);
+
+  const handleDispayMode = () => setIsColumn(!isColumn);
 
   return (
     <section>
@@ -16,12 +18,12 @@ export const AllOffers = () => {
             text-white text-sm font-bold 
             px-3 py-4
           "
-          onClick={() => setToggle(!toggle)}
+          onClick={handleDispayMode}
         >
           Row/Colunm
         </button>
       </div>
-      <OfferGrid displayMode={toggle} />
+      <OfferGrid displayMode={isColumn} />
     </section>
   )
 };

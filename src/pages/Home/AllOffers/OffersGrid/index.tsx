@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { Message } from "components/Message";
+import { InfoMessage } from "components/InfoMessage";
 import React, { useEffect } from "react";
 import { Oval } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,15 +22,23 @@ export const OfferGrid: React.FC<Props> = ({ displayMode }) => {
   }, [dispatch]);
 
   if (error) {
-    return <Message message={error} textColor="error" />;
+    return (
+      <InfoMessage textColor="error" >
+        {error}
+      </InfoMessage>
+    );
   }
 
   if (offers.length === 0 && !loading) {
-    return <Message message={'There are no offers at the moment'} textColor="ligthBlue" />;
+    return (
+      <InfoMessage textColor="ligthBlue" >
+        {'There are no offers at the moment'}
+      </InfoMessage>
+    );
   }
 
-  return (
-    loading ? (
+  if (loading) {
+    return (
       <div className="flex justify-center">
         <Oval
           visible={true}
@@ -39,25 +47,27 @@ export const OfferGrid: React.FC<Props> = ({ displayMode }) => {
           secondaryColor="#eaeaea"
           color="#b2b2b2"
         />
+      </div>
+    );
+  }
 
-      </div>) : (
-      < ul className={
-        cn('grid gap-2 mt-1',
-          {
-            'grid-cols-3': displayMode,
-            'grid-rows-1': !displayMode,
-          }
-        )
-      }>
+  return (
+    < ul className={
+      cn('grid gap-2 mt-1',
         {
-          offers.map(offer => (
-            <li key={offer.id}>
-              <Article offer={offer} displayMode={displayMode} />
-            </li>
-          ))
+          'grid-cols-3': displayMode,
+          'grid-rows-1': !displayMode,
         }
-      </ul >
-    )
+      )
+    }>
+      {
+        offers.map(offer => (
+          <li key={offer.id}>
+            <Article {...offer} displayMode={displayMode} />
+          </li>
+        ))
+      }
+    </ul >
   )
 };
 

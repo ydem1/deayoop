@@ -1,11 +1,11 @@
 interface Props {
-  path: string;
-  imgStyle: string;
+  alt: string;
+  imageClassName: string;
 }
 
-export const ImgArticle: React.FC<Props> = ({ path, imgStyle }) => (
+export const ArticleImage: React.FC<Props> = ({ alt, imageClassName }) => (
   <div className="relative">
-    <img className={imgStyle} src='img/all-offers/default.png' alt={path} />
+    <img className={imageClassName} src='img/all-offers/default.png' alt={alt} />
     <p
       className="
         absolute top-2 left-2 

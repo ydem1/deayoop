@@ -1,9 +1,9 @@
 import cn from "classnames";
-import { saveCurrentUser, updateEmail, updateFullName, updatePhone } from "redux/user/userSlice";
 import { Formik } from "formik";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form } from "react-router-dom";
+import { saveCurrentUser, updateEmail, updateFullName, updatePhone } from "redux/user/userSlice";
 import { basicSchema } from "schemas";
 import { RootState } from "store/store";
 import { User } from "types/User";

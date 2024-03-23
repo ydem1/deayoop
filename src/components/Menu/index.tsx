@@ -2,7 +2,7 @@ import { MENU_OPTIONS } from "constants/menu";
 import React, { useState } from "react";
 import { CategoryMenu } from "types/CategoryMenu";
 
-import { LinksList } from "./LinksList";
+import { CategoryList } from "./CategoryList";
 
 
 interface Props {
@@ -17,18 +17,38 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
   const [currentCategory, setCurrentCategory] = useState('');
   const [currentSubcategory, setCurrentSubcategory] = useState('');
 
-  const handleCategory = (category: CategoryMenu, title: string) => {
-    setCurrentCategories(category.subcategories as []);
-    setCurrentCategory(title)
+  const handleCategory = (
+    category: CategoryMenu,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    const { href = '', title } = category;
+
+    if (href !== '') {
+      handleCloseMenu();
+    } else {
+      event.preventDefault();
+      setCurrentCategories(category.subcategories as []);
+      setCurrentCategory(title);
+    }
   };
 
-  const handleSubcategory = (category: CategoryMenu, title: string) => {
-    setCurrentSubcategories(category.subcategories as [])
-    setCurrentSubcategory(title)
+  const handleSubcategory = (
+    category: CategoryMenu,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    const { href = '', title } = category;
+
+    if (href !== '') {
+      handleCloseMenu();
+    } else {
+      event.preventDefault();
+      setCurrentSubcategories(category.subcategories as [])
+      setCurrentSubcategory(title);
+    }
   };
 
   const handleCloseMenu = () => {
-    closeMenu()
+    closeMenu();
     setCurrentCategory('');
     setCurrentSubcategory('');
     setCurrentCategories([]);
@@ -39,25 +59,24 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
     isOpen && (
       <aside className="absolute left-0 right-0">
         <nav className="grid grid-cols-3" onMouseLeave={handleCloseMenu}>
-          <LinksList
+          <CategoryList
             categories={MENU_OPTIONS}
             currentCategory={currentCategory}
             onClick={handleCategory}
           />
 
           {currentCategories && (
-            <LinksList
+            <CategoryList
               categories={currentCategories}
               currentCategory={currentSubcategory}
               onClick={handleSubcategory}
-              handleClose={handleCloseMenu}
             />
           )}
 
           {currentSubcategories && (
-            <LinksList
+            <CategoryList
               categories={currentSubcategories}
-              handleClose={handleCloseMenu}
+              onClick={handleCloseMenu}
             />
           )}
         </nav>
