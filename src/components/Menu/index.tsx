@@ -2,7 +2,7 @@ import { MENU_OPTIONS } from "constants/menu";
 import React, { useState } from "react";
 import { CategoryMenu } from "types/CategoryMenu";
 
-import { LinksList } from "./LinksList";
+import { CategoryList } from "./CategoryList";
 
 
 interface Props {
@@ -39,14 +39,14 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
     isOpen && (
       <aside className="absolute left-0 right-0">
         <nav className="grid grid-cols-3" onMouseLeave={handleCloseMenu}>
-          <LinksList
+          <CategoryList
             categories={MENU_OPTIONS}
             currentCategory={currentCategory}
             onClick={handleCategory}
           />
 
           {currentCategories && (
-            <LinksList
+            <CategoryList
               categories={currentCategories}
               currentCategory={currentSubcategory}
               onClick={handleSubcategory}
@@ -55,7 +55,7 @@ export const Menu: React.FC<Props> = ({ closeMenu, isOpen }) => {
           )}
 
           {currentSubcategories && (
-            <LinksList
+            <CategoryList
               categories={currentSubcategories}
               handleClose={handleCloseMenu}
             />

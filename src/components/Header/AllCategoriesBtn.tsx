@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HEADER_LINKS } from "../constants";
+import { HEADER_LINKS_LABELS } from "./constants";
 
 interface Props {
   toggleMenu: () => void;
@@ -17,7 +17,7 @@ export const AllCategoriesBtn: React.FC<Props> = ({ toggleMenu }) => (
   >
     <i className="fa-solid fa-bars size-5" />
     <p className="text-black text-sm font-semibold">
-      {HEADER_LINKS.MENU}
+      {HEADER_LINKS_LABELS.MENU}
     </p>
   </button>
 );
