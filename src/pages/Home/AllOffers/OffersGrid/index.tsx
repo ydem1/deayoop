@@ -1,5 +1,4 @@
 import cn from "classnames";
-import { InfoMessage } from "components/InfoMessage";
 import React, { useEffect } from "react";
 import { Oval } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,17 +22,30 @@ export const OfferGrid: React.FC<Props> = ({ displayMode }) => {
 
   if (error) {
     return (
-      <InfoMessage textColor="error" >
+      <p
+        className="
+          font-bold text-4xl text-error
+          rounded-lg border-4 border-grey
+          size-max mx-auto my-6 p-4
+        "
+      >
         {error}
-      </InfoMessage>
+      </p>
     );
   }
 
   if (offers.length === 0 && !loading) {
     return (
-      <InfoMessage textColor="ligthBlue" >
-        {'There are no offers at the moment'}
-      </InfoMessage>
+      <p
+        className="
+          font-bold text-4xl text-ligthBlue
+          rounded-lg border-4 border-grey
+          size-max mx-auto my-6 p-4
+        "
+      >
+        There are no offers at the moment
+      </p>
+
     );
   }
 
