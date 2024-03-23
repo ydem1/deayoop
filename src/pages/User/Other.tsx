@@ -3,7 +3,7 @@ import { getCurrentPage } from "utils/functions/getCurrentPage";
 
 export const Other = () => {
   const { pathname } = useLocation();
-  const [, currentPage] = getCurrentPage(pathname);
+  const [_, currentPage] = getCurrentPage(pathname);
 
   return (
     <div className="grow">
